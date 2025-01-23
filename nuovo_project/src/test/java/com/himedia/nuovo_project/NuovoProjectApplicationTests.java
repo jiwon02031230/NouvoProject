@@ -1,10 +1,10 @@
-package com.himedia.nouvoproject;
+package com.himedia.nuovo_project;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NouvoProjectApplicationTests {
+class NuovoProjectApplicationTests {
 
     @Test
     void contextLoads() {
