@@ -1,0 +1,93 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*문의게시판 table 시작*/
+.ACaboard {
+    position: relative;
+    width: 70%; /* 표와 동일한 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-bottom: 5rem;
+}
+
+.ACaboard {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+
+.ACatext {
+    font-size: 1.2rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.ACaboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ACaboard th, .ACaboard td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.ACaboard th {
+    background-color: #f4f4f4;
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+}
+
+.ACaboard td{
+    height: 50px;
+    vertical-align: middle;
+}
+
+.ACaboard tbody tr:last-child td {
+    border-bottom: 2px solid #a7a7a7; /* 두께 증가 */
+}
+
+/* 테이블 너비 설정 */
+.ACaboard th:nth-child(1), .ACaboard td:nth-child(1) {
+    width: 10%;
+}
+
+.ACaboard th:nth-child(2), .ACaboard td:nth-child(2) {
+    width: 40%;
+}
+
+.ACaboard th:nth-child(3), .ACaboard td:nth-child(3) {
+    width: 20%;
+}
+
+.ACaboard th:nth-child(4), .ACaboard td:nth-child(4) {
+    width: 20%;
+}
+
+/* a 태그 버튼 스타일 */
+.ACaeditbtn {
+    display: inline-block;
+    padding: 7px 10px;
+    background-color: #2e2e2e;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.ACaeditbtn:hover {
+    background-color: #595959;
+}

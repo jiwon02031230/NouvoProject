@@ -1,0 +1,227 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*배너 시작*/
+.GILbanner {
+    width: 100%;
+    height: 300px;
+    background-image: url('../../images/main/main2.jpg'); /* 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.GILBantext {
+    font-family: 'S-CoreDream-3Light';
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBansubtext {
+    font-size: 20px;
+    margin-top: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBanbtn {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.GILBanbtn li {
+    flex: 1; /* 동일한 크기 유지 */
+    width: 200px; /* 최대 너비 설정 (선택) */
+    list-style: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.GILBanbtn li:hover {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* 기본 hover 효과 */
+.GILBanbtn li:hover{
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* active 상태에 hover와 같은 스타일 추가 */
+.GILBanbtn li.active {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+/*배너 끝*/
+
+/*=================================================*/
+
+/*공지사항 detail table 시작*/
+.GCBIboard {
+    position: relative;
+    width: 70%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.GCBItext {
+    font-size: 1.2rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.GCBIboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.GCBIboard th, .GCBIboard td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    padding: 1.2rem;
+    text-align: left;
+}
+
+.GCBIboard th {
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+    margin-left: 1rem;
+    background-color: #f4f4f4;
+}
+
+.GCBItbtext1{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.GCBItbtext1 i {
+    color: #a7a7a7;
+    margin-left: 0.3rem;
+}
+
+.GCBItbtext2{
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.GCBItbcontents{
+    line-height: 1.6rem;
+    margin-left: 1rem;
+}
+
+.GCBIboard tbody tr:last-child td {
+    border-bottom: 2px solid #a7a7a7; /* 두께 증가 */
+}
+
+.GCBIbtns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.2rem;
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+}
+
+.GCBIbtns a {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.GCBIupdate{
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.GCBIupdate:hover{
+    background-color: #2e2e2e;
+}
+
+.GCBIprev{
+    background-color: #8a1812;
+    color: white;
+}
+
+.GCBIprev:hover{
+    background-color: #d3ae36;
+}
+
+/*공지사항 detail table 끝*/
+
+/*====================================================*/
+
+/*댓글 시작*/
+
+.GCBIreply {
+    padding-top: 5rem;
+}
+
+.GCBIreply th{
+    padding: 1rem;
+}
+
+.GCBIreplybottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem;
+    padding-left: 1rem;
+}
+
+.GCBIreplyid {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.GCBIreplytime {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

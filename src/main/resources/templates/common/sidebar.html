@@ -1,0 +1,98 @@
+<sidebar th:fragment="sidebar">
+    <div class="sidebar">
+        <ul>
+            <li id="scrollTopBtn">
+                <i class="bi bi-caret-up"></i>
+                <span>맨위로</span>
+            </li>
+            <span class="sidebarline">ㅡ</span>
+            <a href="javascript:void(0);" onclick="checkLoginAndRedirect('/reservation')">
+                <li>
+                    <i class="bi bi-calendar3"></i>
+                    <span>예약</span>
+                </li>
+            </a>
+            <span class="sidebarline">ㅡ</span>
+            <a href="/faq">
+                <li>
+                    <span class="faq">FAQ</span>
+                </li>
+            </a>
+            <span class="sidebarline">ㅡ</span>
+            <a href="javascript:void(0);" onclick="checkLoginAndRedirect('/greservation')">
+                <li>
+                    <i class="bi bi-person-circle"></i>
+                    <span>마이페이지</span>
+                </li>
+            </a>
+
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function checkLoginAndRedirect(url) {
+            fetch('/api/checkLoginStatus', {
+                method: 'GET',
+                credentials: "include" // ⭐ 세션 쿠키 포함 ⭐
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("로그인 상태:", data);
+                    if (data.loggedIn) {
+                        window.location.href = url; // 🔥 마이페이지뿐만 아니라 다양한 URL에 사용 가능!
+                    } else {
+                        Swal.fire({
+                            title: "로그인이 필요합니다",
+                            text: "서비스를 이용하려면 먼저 로그인 해주세요.",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "로그인",
+                            cancelButtonText: "닫기",
+                            customClass: {
+                                confirmButton: "custom-btn",  // 🔥 확인 버튼 스타일 지정
+                                cancelButton: "custom-cancel" // 기본 취소 버튼 스타일
+                            },
+                            buttonsStyling: false // SweetAlert 기본 버튼 스타일 제거
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "/login"; // 로그인 페이지로 이동
+                            }
+                        });
+                    }
+                })
+                .catch(error => console.error("로그인 상태 확인 중 오류 발생:", error)); // 오류 로깅
+        }
+
+
+    </script>
+
+    <style>
+        .custom-btn {
+            background-color: #8A1812 !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            margin-right: 20px;
+        }
+
+        .custom-btn:hover {
+            background-color: #a6332d !important;
+        }
+
+        .custom-cancel {
+            background-color: #ddd !important;
+            color: #555 !important;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+        }
+
+    </style>
+
+
+</sidebar>

@@ -1,0 +1,238 @@
+#header{
+    display: none !important;
+}
+
+/* 전체 컨테이너 설정 */
+.Gsignupcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin-bottom: 5rem;
+}
+
+/*누오보 로고*/
+.Gsignup_nuovo_logo{
+    width: 150px;
+    margin: 10px;
+}
+
+/* 회원가입 text */
+.Gsignup_join_text{
+    color: #8A1812;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+/*필수입력 text*/
+.Gsignup_info_text{
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+/*필수입력 별*/
+.star_text{
+    color: #8A1812;
+}
+
+/* 회원가입 박스 */
+.Gsignup_box {
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* 입력 필드 스타일 통일 */
+input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* 필수 입력 표시 */
+.GSstar, .star_text {
+    color: #a5201a;
+    font-weight: bold;
+}
+
+.GSnostar {
+    font-weight: bold;
+    visibility: hidden;
+}
+
+/* 한 줄 정렬 요소들 */
+.Gsignupidinput, .Gsignuptelinput1,
+.Gsignuptelinput2, .Gsignupwinput1,
+.Gsignupwinput2con, .Gsignupnameinput,
+.Gsignupmailinput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.2rem;
+}
+
+.Gsignupidinput, .Gsignupgenderinput,
+.Gsignupnameinput, .Gsignupwinput1,
+.Gsignuptelinput, .Gsignupbirthinput {
+    margin-bottom: 1.3rem;
+}
+
+
+.Gsignuptelinput1, .Gsignupmailinput{
+    margin-bottom: 0.3rem;
+}
+
+.Gsignupbirthinput, .Gsignupgenderinput{
+    margin-top: 1.3rem;
+}
+
+.Gsignupbirthinput, .Gsignupgenderinput, .Gsignupcommitbtn{
+    margin-left: 10px;
+}
+
+.Gsignuptitletext{
+    margin-bottom: 0.3rem;
+}
+
+.Gsignupwinput2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.GMYMbirth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.Gsignupbirthinput select {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+
+.Gsignupgenderinput {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.input_gender {
+    display: flex;
+    justify-content: center; /* 버튼 그룹을 가운데 정렬 */
+    width: 100%;
+}
+
+.Gsignupwinput2err, .Gsignupmailinput {
+    text-align: left;
+    display: block;
+}
+
+.Gsignupmailinput1 {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+}
+
+/* 버튼 스타일 통일 */
+button {
+    height: 40px;
+    padding: 0 15px;
+    border: none;
+    background-color: #8A1812;
+    color: white;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d3ae36;
+}
+
+.Gsignupcommit{
+    width: 100%;
+}
+
+/* 회원가입 버튼 중앙 정렬 */
+.Gsignupcommitbtn {
+    margin-top: 1rem;
+    width: calc(100% - 10px);
+}
+
+/* 제목 텍스트 왼쪽 정렬 */
+.Gsignuptitletext {
+    text-align: left;
+}
+
+/* 버튼 색 변경 */
+.btn-danger {
+    background-color: #8A1812;
+    border-color: #8A1812;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #d3ae36;
+    border-color: #d3ae36;
+}
+
+.btn-outline-danger:hover {
+    background-color: #8A1812;
+    border-color: #8A1812;
+    color: white;
+}
+
+
+/*버튼 색 변경*/
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #8A1812;
+    --bs-btn-border-color: #8A1812;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #d3ae36;
+    --bs-btn-hover-border-color: #d3ae36;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #8A1812;
+    --bs-btn-active-border-color: #8A1812;
+    --bs-btn-focus-shadow-rgb: 211, 174, 54; /* 포커스 테두리 색 */
+}
+
+.input_gender .btn-outline-danger {
+    --bs-btn-color: black; /* 기본 글씨 색상 */
+    --bs-btn-border-color: #797979; /* 기본 테두리 색상 */
+    --bs-btn-hover-color: #fff; /* 호버 시 글씨 색상 */
+    --bs-btn-hover-bg: #8A1812; /* 호버 시 배경 색상 */
+    --bs-btn-hover-border-color: #8A1812; /* 호버 시 테두리 색상 */
+    --bs-btn-active-color: #fff; /* 클릭 시 글씨 색 */
+    --bs-btn-active-bg: #8A1812; /* 클릭 시 배경 색 */
+    --bs-btn-active-border-color: #8A1812; /* 클릭 시 테두리 색 */
+}
+
+/* 비밀번호 불일치 문구 */
+.error-msg {
+    display: block;
+    color: #8A1812;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-left: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.GR_alert_msg {
+    color: #8A1812;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    margin-left: 14px; /* 왼쪽에 여백 */
+    display: block;
+}

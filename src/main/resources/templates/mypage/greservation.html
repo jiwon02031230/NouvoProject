@@ -1,0 +1,166 @@
+<!--마이페이지- 예약내역 페이지-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO MY PAGE</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- 제이쿼리 라이브러리-->
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+
+    <!-- 자바스크립트 -->
+    <script th:src="@{/js/header.js}"></script>
+    <script th:src="@{/js/mypage/info.js}"></script>
+    <script th:src="@{/js/mypage/greservation.js}"></script>
+
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/greservation.css}">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/header :: header"></th:block>
+
+
+<!-- 메뉴 배너 -->
+<div class="GILbanner">
+    <div class="GILBantext">MY PAGE</div>
+    <div class="GILBansubtext">마이페이지</div>
+    <ul class="GILBanbtn">
+        <a th:href="@{/inquiry}"><li id="inquiryTab" >문의내역</li></a>
+        <a href="/greservation" ><li id="reservationTab" class="active">예약내역</li></a>
+        <a href="/info" ><li id="infoUpdateTab">개인정보수정</li></a>
+    </ul>
+</div><!-- 메뉴 배너 끝-->
+
+
+<!--마이페이지 시작-->
+<div class="GILmain">
+
+    <!-- 상단 텍스트 박스 시작-->
+    <div class="GMyRLtopText">
+        <ul>
+            <li class="GMyRLtopMaintext">현재까지 예약하신 모든 예약 현황을 조회할 수 있습니다.</li>
+            <li class="GMyRLtopSubtext">무료 예약 변경/취소는 방문일 기준 24시간 전까지만 가능합니다. 당일 예약 취소는 전화로 문의주세요.</li>
+            <li class="GMyRLtopMaintext">문의: 1588-1234</li>
+        </ul>
+    </div><!-- 상단 텍스트 박스 끝-->
+
+    <!-- 예약내역 board 시작 -->
+    <div class="GMyRLboard">
+
+        <!-- 예약내역 text -->
+        <div class="GMyRLtext">
+            <div class="GMyRLtext1" th:text="${loginMember.memName}+' 님 |'"></div>
+            <div class="GMyRLtext2">[1] 건의 예약 현황이 있습니다.</div>
+        </div>
+
+
+        <!-- 게시판 내용 -->
+        <table>
+            <thead>
+            <tr>
+                <th>예약자명</th>
+                <th>예약인원</th>
+                <th>예약일시</th>
+                <th>이용시간</th>
+                <th>결제금액</th>
+                <th>예약현황</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <!-- 항목추가!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <tr th:each="resv, no:${validResv}"
+                th:onclick="|location.href='/greservation/detail/' + ${resv.id}|">
+                <td th:text="${resv.resvName}"></td>
+                <td th:text="${resv.totalGuests}+'명'"></td>
+                <td>
+                    <span th:text="${rDate.get(no.index).resvDate.getYear()+'- '+
+                           rDate.get(no.index).resvDate.getMonthValue()+'-'+
+                           rDate.get(no.index).resvDate.getDayOfMonth()}"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'SUNDAY'}" th:text="'(일)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'MONDAY'}" th:text="'(월)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'TUESDAY'}" th:text="'(화)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'WEDNESDAY'}" th:text="'(수)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'THURSDAY'}" th:text="'(목)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'FRIDAY'}" th:text="'(금)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'SATURDAY'}" th:text="'(토)'"></span>
+                </td>
+                <td th:text="${rDate.get(no.index).getResvType() == 0 ? '오전 ' : '오후 '}+
+                             ${rDate.get(no.index).getResvTime()+':00'}"></td>
+                <td th:text="${resv.totalPayment}+'원'"></td>
+                <td>
+                    예약 완료
+                    <div class="GMyRLtbbtn">
+                        <a class="GMyRLdelbtn" th:id="${resv.id}" onclick="event.stopPropagation();">예약취소</a>
+                        <a href="#" class="GMyRLeditbtn">예약변경</a>
+                    </div>
+                </td>
+            </tr>
+            <!-- 반복!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+            <tr th:each="resv, no:${invalidResv}" id="GMyRLinvalid"
+                th:onclick="|location.href='/greservation/detail/' + ${resv.id}|"><!-- 방문완료!!!!!!!!!!!!!!!!!!!!!! -->
+                <td th:text="${resv.resvName}"></td>
+                <td th:text="${resv.totalGuests}+'명'"></td>
+                <td>
+                    <span th:text="${rDate.get(no.index).resvDate.getYear()+'- '+
+                           rDate.get(no.index).resvDate.getMonthValue()+'-'+
+                           rDate.get(no.index).resvDate.getDayOfMonth()}"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'SUNDAY'}" th:text="'(일)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'MONDAY'}" th:text="'(월)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'TUESDAY'}" th:text="'(화)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'WEDNESDAY'}" th:text="'(수)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'THURSDAY'}" th:text="'(목)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'FRIDAY'}" th:text="'(금)'"></span>
+                    <span th:if="${rDate.get(no.index).getResvDate().getDayOfWeek().toString() == 'SATURDAY'}" th:text="'(토)'"></span>
+                </td>
+                <td th:text="${rDate.get(no.index).getResvType() == 0 ? '오전 ' : '오후 '}+
+                             ${rDate.get(no.index).getResvTime()+':00'}"></td>
+                <td th:text="${resv.totalPayment}+'원'"></td>
+                <td th:if="${resv.resvStatus==0}" th:text="'완료'"></td>
+                <td th:if="${resv.resvStatus==1}" th:text="'취소'"></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+
+
+        <!-- 페이지네이션 -->
+        <div class="GILpagination">
+            <a href="#" id="prevPage">«</a>
+            <span id="pageNumbers"></span>
+            <a href="#" id="nextPage">»</a>
+        </div>
+    </div>
+
+</div><!--마이페이지 끝-->
+
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+
+<!--사이드바-->
+<th:block th:replace="common/sidebar :: sidebar"></th:block>
+
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Apamain {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+/* 서치바 시작!!!!! */
+.APasearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 3rem;
+    gap: 1rem;
+}
+
+
+.APaselect {
+    padding: 0.3rem 2rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.APasearch input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-size: 14px;
+    width: 500px;
+}
+
+.APaCombtn {
+    background-color: #8a1812;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.7rem 1.2rem;
+    display: block;
+}
+
+.APaCombtn:hover {
+    background-color: #d3ae36;
+}
+/* 서치바 끝!!!!! */
+
+/*========================================*/
+
+/* 회원 목록 시작 */
+.APaToptext{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.APatext {
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+.APaboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.APaboard th, .APaboard td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 테이블 세로선 추가 (맨 왼쪽과 오른쪽 제외) */
+.APaboard th:not(:first-child),
+.APaboard td:not(:first-child) {
+    border-left: 1px solid #ddd;
+}
+
+
+.APaboard th {
+    background-color: #f4f4f4;
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+    padding: 0.8rem;
+}
+
+.APaboard tbody tr:last-child td {
+    border-bottom: 2px solid #a7a7a7;
+}
+
+/* 테이블 열 너비 설정 */
+.APaboard th:nth-child(1), .APaboard td:nth-child(1) { width: 7%; }
+.APaboard th:nth-child(2), .APaboard td:nth-child(2) { width: 10%; }
+.APaboard th:nth-child(3), .APaboard td:nth-child(3) { width: 15%; }
+.APaboard th:nth-child(4), .APaboard td:nth-child(4) { width: 15%; }
+.APaboard th:nth-child(5), .APaboard td:nth-child(5) { width: 20%; }
+.APaboard th:nth-child(6), .APaboard td:nth-child(6) { width: 15%; }
+.APaboard th:nth-child(7), .APaboard td:nth-child(7) { width: 8%; }
+
+.APaupdbtn {
+    display: inline-block;
+    padding: 0.5rem 0.8rem;
+    background-color: #595959;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.APaupdbtn:hover {
+    background-color: #2e2e2e;
+}
+
+/*========================================*/
+
+/* 페이지네이션 */
+.APapagination {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.APapagination a {
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #a7a7a7;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+#pageNumbers {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.APapagination a.active {
+    background-color: #a7a7a7;
+    color: white;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUOVO</title>
+
+  <!-- 파비콘 -->
+  <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+  <!-- 부트스트랩 라이브러리 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- 제이쿼리 라이브러리-->
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" th:href="@{/css/basic.css}">
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/cart.css}">
+
+  <!--로그인 모달-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="/css/login/modal.css">
+
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/header :: header"></th:block>
+
+<!-- 카트 배너 -->
+<div class="GCNbanner">
+  <div class="GCNBantext">장바구니</div>
+  <div class="GCNBansubtext">
+    <p>식당 예약 시 원하시는 메뉴를 담아주시면 빠른 조리가 가능합니다.</p>
+    <p>장바구니에 담은 메뉴들은 예약화면에서 불러오실 수 있습니다.</p>
+  </div>
+</div><!-- 메뉴 배너 끝-->
+
+
+<!--카트 시작!!-->
+<div class="GCart">
+
+  <!-- 목록 시작 -->
+  <div class="GCartListWrap">
+
+    <!-- 장바구니 내역 text -->
+    <div class="GCartext">장바구니 내역</div>
+
+    <!-- 리스트와 합계 박스 -->
+    <div class="GCartListBoxWrap">
+
+      <!-- 상단 전체선택 버튼 -->
+      <div class="GCartAllSelect" style="opacity: 0">
+        <input type="checkbox" id="selectAll"><p>모두 선택하기</p>
+      </div>
+
+      <!-- 리스트와 합계 박스 -->
+      <div class="GCartListAddBox">
+
+      <!-- 좌측 리스트박스 -->
+      <div class="GCartListbox">
+          <ul class="GCartContentsWrap">
+
+            <!-- 장바구니 리스트 반복 시작!!!!!!!!!!!!!! -->
+            <li class="GCartContents" th:each="cart, no : ${cartList}">
+
+              <!-- 이미지-->
+              <div class="GCartContimg">
+                <img th:src="@{'/images/menu/'+${menuList.get(no.index).menuImageUrl}}">
+              </div>
+
+              <!--텍스트+증감버튼-->
+              <div class="GCartContext">
+                <p class="GCartContextitle" th:text="${menuList.get(no.index).menuName}"></p>
+                <p class="GCartContexprice">가격: <span th:text="${menuList.get(no.index).menuPrice}"></span>원</p>
+                <p class="GCartContexnutri" th:text="'영양성분 : 열량 '+${menuList.get(no.index).menuKcal}+'kcal'
+                                                       + ' / 단백질 ' +${menuList.get(no.index).menuProtein}+'g'
+                                                         + ' / 당류 ' +${menuList.get(no.index).menuSugar}+'g'
+                                                       + ' / 나트륨 ' +${menuList.get(no.index).menuSugar}+'mg'"></p>
+                <p class="GCartContexnutri" th:text="'알러지 정보 : ' +${menuList.get(no.index).menuAllergens}"> </p>
+
+                <!-- 증감버튼 -->
+                <div class="GCartQuantity">
+                  <button class="GCartMinus">-</button>
+                  <input type="text" th:value="${cartList.get(no.index).quantity}">
+                  <button class="GCartMplus">+</button>
+                </div>
+              </div>
+
+              <!-- close 버튼 -->
+              <div class="GCartCloseBtn" id="deleteBtn">
+                <input type="hidden" th:value="${menuList.get(no.index).getId()}" id="menuId">
+                <i class="bi bi-x-lg"></i>
+              </div>
+
+            </li><!-- 장바구니 리스트 반복 끝!!!!!!!!!!!!!! -->
+
+          </ul>
+
+      </div>
+
+      <!-- 우측 합계박스-->
+      <div class="GCartaddbox">
+        <div class="GCartAllOrderPrice">
+          <p class="GCartAOPtext">주문 예상 금액</p>
+          <div class="GCartDflex">
+            <div class="GCartDflex1">
+            <p>선택된 항목</p><p th:text="${cartList.size()+'개'}"></p>
+            </div>
+            <hr>
+            <div class="GCartDflex2">
+            <p>총계</p><p><span id="totalPayment"></span>원</p>
+            </div>
+          </div>
+        </div>
+        <a href="/reservation" class="GCartaddboxreser">예약하기</a>
+      </div>
+
+    </div>
+    </div>
+
+  </div>
+  <!-- 목록 끝 -->
+
+</div><!--카트 끝!!-->
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+
+<!--사이드바-->
+<th:block th:replace="common/sidebar :: sidebar"></th:block>
+
+<!--JS-->
+<script th:src="@{/js/cart.js}"></script>
+</body>
+</html>

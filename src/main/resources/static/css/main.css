@@ -1,0 +1,76 @@
+.GMcarousel {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.GMcarouseltrack {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.GMcarouselslide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.GMcarouselslide img, .GMcarouselslide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.GMcarouselbuttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.GMcarouselbuttons i {
+    font-size: 3rem; /* 아이콘 크기 */
+    color: white;    /* 아이콘 색상 */
+    margin: 0 40px;
+}
+
+.GMcarouselbuttons button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.GMcarouseldots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.GMcarouseldots button {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+}
+
+.GMcarouseldots .active {
+    background-color: rgba(137, 23, 18, 1);
+}

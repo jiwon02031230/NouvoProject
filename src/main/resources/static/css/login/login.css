@@ -1,0 +1,94 @@
+#header{
+    display: none !important;
+}
+
+.main_con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.Glogin_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    width: 300px;
+}
+
+.Glogin_nuovo_logo {
+    width: 150px;
+    margin-bottom: 0.5rem;
+}
+
+.Glogintext{
+    color: #8A1812;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+.Glogin_box form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Glogin_input_id,
+.Glogin_input_pwd {
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 0.4rem 0;
+    padding-left: 0.8rem;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 0.4rem 0;
+    padding-left: 0.8rem;
+    background-color: #8A1812;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d3ae36;
+}
+
+.Gloginjoinbtn {
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 10px;
+    padding: 0.4rem 0;
+    padding-left: 0.8rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    background-color: #a7a7a7;
+}
+
+.Gloginjoinbtn:hover {
+    background-color: #595959;
+}
+
+.Glogin_find_id_pwd {
+    margin-top: 10px;
+    color: #727272;
+}
+
+.Glogin_find_id:hover,
+.Glogin_find_pwd:hover{
+    color: #8A1812;
+}

@@ -1,0 +1,197 @@
+/* 메뉴추가 시작 */
+.AAMaddboard {
+    position: relative;
+    width: 70%;
+    margin: 5rem auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 상위 텍스트 */
+.AAMaddtoptext {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.AAMaddtext {
+    font-size: 1.5rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* 필수 입력 */
+.AAMaddtopmust {
+    display: flex;
+    font-size: 0.8rem;
+}
+
+.AAMaddtopmust span {
+    color: red;
+}
+
+/* 테이블 스타일 */
+.AAMaddformsection {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.AAMaddformsection td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+/* 테이블 첫 번째 줄과 마지막 줄 스타일 */
+.AAMaddformsection tr:first-child td {
+    border-top: 2px solid #a7a7a7;
+}
+
+.AAMaddformsection tr:last-child td {
+    border-bottom: 1px solid #a7a7a7;
+}
+
+
+
+/* 필수 입력 표시 */
+.AAMaddrequired::before {
+    content: "*";
+    color: red;
+    font-size: 1rem;
+    margin-right: 0.6rem;
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+.AAMaddrequiredno::before {
+    content: "*";
+    visibility: hidden; /* 안 보이게 설정 */
+    margin-right: 0.6rem;
+    margin-left: 1.5rem;
+}
+
+/* select 스타일 */
+.AAMaddselect {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 60%;
+}
+
+.AAMaddformsection input {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 60%;
+}
+
+/* 영양정보 스타일 */
+.AAMaddnutrinfo {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.AAMaddnutrinfoL, .AAMaddnutrinfoR {
+    display: flex;
+    flex-direction: column;
+}
+
+.AAMaddnutrinfoR input {
+    width: 300px;
+}
+
+.AAMaddnutrialler {
+    width: 400px !important;
+}
+
+.AAMaddnutrinfoL ul, .AAMaddnutrinfoR ul {
+    width: 100%;
+}
+
+.AAMaddnutrinfoL li, .AAMaddnutrinfoR li {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+/* 가격 입력 스타일 */
+.AAMaddprice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 이미지 선택 스타일 */
+.AAMaddimgbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 버튼 스타일 */
+#file-upload-button {
+    background-color: #8a1812;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.6rem 1rem;
+}
+
+#file-upload-button:hover {
+    background-color: #d3ae36;
+}
+
+.AAMaddprv{
+    display: flex;
+    margin: 0.6rem 3rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.AAMaddprvbtn {
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.3rem 0.8rem;
+}
+
+.AAMaddprvbtn:hover {
+    background-color: #595959;
+}
+
+.AAMaddbtnbox {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.AAMaddbtnreset, .AAMaddbtnsubmit {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.AAMaddbtnreset {
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.AAMaddbtnreset:hover {
+    background-color: #2e2e2e;
+}
+
+.AAMaddbtnsubmit {
+    background-color: #8a1812;
+    color: white;
+}
+
+.AAMaddbtnsubmit:hover {
+    background-color: #d3ae36;
+}

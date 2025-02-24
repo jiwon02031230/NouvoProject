@@ -1,0 +1,157 @@
+/*에스코어 폰트*/
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'S-CoreDream';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/*배너 시작*/
+.GCNbanner {
+  width: 100%;
+  height: 300px;
+  background-image: url('../../images/main/main2.jpg'); /* 이미지 경로 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+.GCNBantext {
+  font-family: 'S-CoreDream-3Light';
+  font-weight: 300;
+  font-size: 2.5rem;
+  margin-top: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GCNBansubtext {
+  font-size: 20px;
+  margin-top: 0.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GCNBanbtn {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 20px;
+  margin-top: 2rem;
+}
+
+.GCNBanbtn li {
+  flex: 1; /* 동일한 크기 유지 */
+  width: 200px; /* 최대 너비 설정 (선택) */
+  list-style: none;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.GCNBanbtn #faq {
+  background-color: #8a1812;
+  font-weight: bold;
+  color: white;
+}
+
+.GCNBanbtn li:hover {
+  background-color: #8a1812;
+  font-weight: bold;
+  color: white;
+}
+/*배너 끝*/
+
+/*============================================*/
+
+/*FAQ 컨테이너 css 시작*/
+
+/* FAQ 컨테이너 */
+.GCFfaqcontainer {
+  width: 60%;
+  margin: 4rem auto;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* FAQ 제목 */
+.GCFtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* FAQ 아이템 */
+.GCFitem {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  margin-bottom: 1rem;
+
+}
+
+.GCFquestion i {
+  font-size: 0.6rem;
+}
+
+.GCFtitleicon i {
+  font-size: 3rem;
+}
+
+/* 질문 스타일 */
+.GCFquestion {
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.GCFquestion:hover {
+  color: #8a1812;
+}
+
+/* 답변 스타일 */
+.GCFanswer {
+  color: #555;
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out;
+  padding: 0 1rem;
+  line-height: 1.6;/*줄간격!!*/
+}
+
+/* 열렸을 때 스타일 */
+.GCFanswer.open {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.GCFanswer span{
+  color: #8a1812;
+  font-weight: bold;
+}
+
+
+/*FAQ 컨테이너 css 끝*/

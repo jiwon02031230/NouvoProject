@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 부트스트랩 아이콘 CDN 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+    <!-- 제이쿼리 라이브러리-->
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/admBanner.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/menu/menuAdm.css}">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/admHeader :: admHeader"></th:block>
+
+<!-- 메뉴 배너 -->
+<div class="Admbanner">
+    <div class="AdmBantext">관리자 페이지</div>
+    <div class="AdmBansubtext">NUOVO 레스토랑</div>
+    <ul class="AdmBanbtn">
+        <a href="/adm/reservation">
+            <li id="admReservation_tab">예약 관리</li>
+        </a>
+        <a href="/adm/member">
+            <li id="admMember_tab">회원 관리</li>
+        </a>
+        <a href="/adm/community">
+            <li id="admCommunity_tab">고객지원 관리</li>
+        </a>
+        <a href="/adm/menu">
+            <li id="admMenu_tab" class="active">메뉴 관리</li>
+        </a>
+    </ul>
+</div><!-- 메뉴 배너 끝-->
+
+<main class="AAMamain">
+
+    <!--Css classname : AMa(admin Menu)-->
+    <!--  메뉴관리 시작!!!!  -->
+    <div class="AAMaboard">
+
+        <!-- 메뉴 관리 text -->
+        <div class="AAMatext">메뉴 관리</div>
+
+        <!-- 셀렉트박스, 버튼 -->
+        <div class="AAMaTop">
+            <!-- 좌측2개 셀렉트박스 + 카테고리수정/추가 -->
+            <div class="AAMaTopL">
+                <form action="/adm/category/search" method="post" id="categoryForm">
+                    <select class="AAMaTopLselect" name="categoryType" id="categorySelect">
+                        <option value="all" th:selected="${categoryType == 'all'}">전체 선택</option>
+                        <option th:each="category : ${categories}"
+                                th:value="${category.id}"
+                                th:text="${category.categoryName}"
+                                th:selected="${categoryType != null and category.id != null and categoryType == category.id}"></option>
+                    </select>
+                </form>
+            </div>
+
+            <!-- 우측1개 메뉴추가 -->
+            <div class="AAMaTopR">
+                <a href="/adm/menuadd" class="AAMaTopLCabtn">메뉴 추가</a>
+            </div>
+        </div>
+
+        <form id="deleteMnuForm" action="/adm/menu/delete" method="delete">
+            <table>
+                <thead>
+                <tr>
+                    <th><input type="checkbox" class="AAMacheckbox" id="selectAll"></th>
+                    <th>번호</th>
+                    <th>이미지</th>
+                    <th>메뉴명</th>
+                    <th>가격</th>
+                    <th>카테고리</th>
+                    <th>등록/수정일</th>
+                    <th>-</th>
+                </tr>
+                </thead>
+
+                <tbody id="AAMaTableBody">
+                <tr th:each="menu : ${menuList}" th:data-category="${menu.menuCategory}" class="menu-row">
+                    <td><input type="checkbox" class="AAMacheckbox" name="menuIds" th:value="${menu.id}"></td> <!-- value 추가 -->
+                    <td th:text="${menu.id}"></td>
+                    <td class="AAMimagesListBox">
+                        <img th:src="@{'/images/menu/' + ${menu.menuImageUrl}}" th:alt="${menu.menuImageUrl}" />
+                    </td>
+                    <td th:text="${menu.menuName}"></td>
+                    <td th:text="${menu.menuPrice} + '원'"></td>
+                    <td th:each="category : ${categories}"
+                        th:if="${category.id == menu.menuCategory}"
+                        th:text="${category.categoryName}">
+                    </td>
+                    <td th:text="${menu.createdDate}"></td>
+                    <td><a href="/adm/menuupd" class="AAMaupdbtn">수정</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="AAMadelbtn" onclick="submitDeleteForm()">삭제</button>
+        </form>
+        <div class="AAMapagination">
+            <a href="#" id="prevPage">«</a>
+            <span id="pageNumbers"></span>
+            <a href="#" id="nextPage">»</a>
+        </div>
+
+        <!-- 서치바 시작 -->
+                    <form action="/adm/menu/search" method="post" class="AAMasearch"> <!-- action과 method 추가 -->
+                        <select class="AAMaselect" id="searchSelect" name="menuSearch">
+                            <option value="">선택</option>
+                            <option value="title">메뉴명</option>
+                            <option value="substance">가격</option>
+                        </select>
+                        <input type="text" id="searchInput" name="menuSkeyword" placeholder="검색어를 입력하세요">
+                        <button type="submit" class="AAMaCombtn" id="searchButton">검색</button> <!-- 버튼으로 변경 -->
+                    </form>
+
+
+    </div><!-- 메뉴관리 끝!!!! -->
+</main>
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+</body>
+<!-- 자바스크립트 -->
+<script th:src="@{/js/admin/menuAdm.js}"></script>
+
+
+
+
+</html>

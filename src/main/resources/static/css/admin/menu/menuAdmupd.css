@@ -1,0 +1,320 @@
+/* 메뉴추가 시작 */
+.AAMaddboard {
+    position: relative;
+    width: 70%;
+    margin: 5rem auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 상위 텍스트 */
+.AAMaddtoptext {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.AAMaddtext {
+    font-size: 1.5rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* 필수 입력 */
+.AAMaddtopmust {
+    display: flex;
+    font-size: 0.8rem;
+}
+
+.AAMaddtopmust span {
+    color: red;
+}
+
+/* 테이블 스타일 */
+.AAMaddformsection {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.AAMaddformsection td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+/* 테이블 첫 번째 줄과 마지막 줄 스타일 */
+.AAMaddformsection tr:first-child td {
+    border-top: 2px solid #a7a7a7;
+}
+
+.AAMaddformsection tr:last-child td {
+    border-bottom: 1px solid #a7a7a7;
+}
+
+
+
+/* 필수 입력 표시 */
+.AAMaddrequired::before {
+    content: "*";
+    color: red;
+    font-size: 1rem;
+    margin-right: 0.6rem;
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+.AAMaddrequiredno::before {
+    content: "*";
+    visibility: hidden; /* 안 보이게 설정 */
+    margin-right: 0.6rem;
+    margin-left: 1.5rem;
+}
+
+/* select 스타일 */
+.AAMaddselect {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 60%;
+}
+
+.AAMaddformsection input {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 60%;
+}
+
+/* 영양정보 스타일 */
+.AAMaddnutrinfo {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+
+.AAMaddnutrinfoL, .AAMaddnutrinfoR {
+    display: flex;
+    flex-direction: column;
+}
+
+.AAMaddnutrinfoR input {
+    width: 300px;
+}
+
+.AAMaddnutrialler {
+    width: 400px !important;
+}
+
+.AAMaddnutrinfoL ul, .AAMaddnutrinfoR ul {
+    width: 100%;
+}
+
+.AAMaddnutrinfoL li, .AAMaddnutrinfoR li {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+/* 가격 입력 스타일 */
+.AAMaddprice {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 이미지 선택 스타일 */
+.AAMaddimgbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 버튼 스타일 */
+.AAMaddrequiredbtn {
+    background-color: #8a1812;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.6rem 1rem;
+}
+
+.AAMaddrequiredbtn:hover {
+    background-color: #d3ae36;
+}
+
+.AAMaddprv{
+    display: flex;
+    margin: 0.6rem 3rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.AAMaddprvbtn {
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.3rem 0.8rem;
+}
+
+.AAMaddprvbtn:hover {
+    background-color: #595959;
+}
+
+.AAMaddbtnbox {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.AAMaddbtnreset, .AAMaddbtnsubmit {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.AAMaddbtnreset {
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.AAMaddbtnreset:hover {
+    background-color: #2e2e2e;
+}
+
+.AAMaddbtnsubmit {
+    background-color: #8a1812;
+    color: white;
+}
+
+.AAMaddbtnsubmit:hover {
+    background-color: #d3ae36;
+}
+
+/*모달창 시작!!!!!!!!!!*/
+/* 모달 기본 스타일 (초기 숨김) */
+.GMMmodal {
+    top: 0;
+    left: 0;
+    width: 100vw; /* 전체 화면 너비 */
+    height: 100vh; /* 전체 화면 높이 */
+    background: rgba(0, 0, 0, 0.6); /* 배경 어둡게 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 모달 최상위로 */
+    position: fixed;
+}
+
+/* 모달 본체 */
+.GMMcontain {
+    position: fixed; /* absolute → fixed 변경 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정중앙 정렬 */
+    width: 500px;
+    height: 700px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+    text-align: center;
+    z-index: 1001; /* 모달 본체가 배경보다 위로!! */
+}
+
+/* 닫기 버튼 */
+.GMMclose {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    color: #a7a7a7; /* 색 */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.GMMimg {
+    margin-top: 2rem;
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+.GMMtitle {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    word-wrap: break-word;
+    width: 60%;
+    line-height: 1.6rem;
+}
+
+.GMMprice {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #8A1812;
+    margin-top: 0.8rem;
+}
+
+/*영양정보*/
+.GMMnutrition {
+    width: 80%;
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-top: 1.5rem;
+    border: 1px solid #595959; /* 테두리 추가 */
+    padding: 1.5rem;
+}
+
+.GMMnutrition ul {
+    text-align: center; /* ul 내부 요소 가운데 정렬 */
+}
+
+.GMMultitle {
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd; /* 하단 테두리 추가 */
+    text-align: center;
+}
+
+.GMMnutriopt {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.GMMnutriopt1, .GMMnutriopt2 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+}
+
+.GMMnutriopt1{
+    padding-left: 2rem;
+}
+
+.GMMnutriopt2{
+    padding-right: 2rem;
+}
+
+.GMMallergy {
+    margin-top: 0.8rem;
+    text-align: center;
+}
+/*영양정보끝*/
+
+/*  모달 창 끝  */

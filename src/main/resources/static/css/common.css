@@ -1,0 +1,224 @@
+/* body 스타일 */
+body {
+    margin: 0;
+    min-height: 100vh; /* 화면의 최소 높이를 뷰포트 높이로 설정 */
+    display: flex;
+    flex-direction: column; /* header, main, footer 순으로 배치 */
+    font-family: "Noto Sans KR";
+}
+
+/* main 스타일 */
+main {
+    flex-grow: 1; /* main 영역이 남은 공간을 모두 채우도록 설정 */
+}
+
+/* header 스타일 */
+#header {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 정렬 */
+}
+
+/* 로고와 로그인 스타일 */
+.navtop {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+/* 로고 스타일 */
+.logo {
+    margin-left: 15rem;
+}
+
+.logo img{
+    width: 120px;
+}
+
+/* 로그인 스타일 */
+.loginJoin{
+    padding-right: 15rem;
+    display: flex;
+    align-items: center;
+}
+
+.login, .join {
+    padding: 0.8rem;
+    color: #727272;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.login:hover, .join:hover {
+    color: #8A1812 !important;
+}
+
+.loginaccess {
+    padding: 0.8rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #727272;
+}
+
+.loginaccess i {
+    font-size: 1.6rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.loginaccess i:hover{
+    color: #8A1812;
+}
+
+.loginSuccess{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* 네비게이션 */
+#nav {
+    display: flex;
+    justify-content: center; /* 메뉴 항목을 가운데 정렬 */
+    width: 100%;
+    z-index: 99;
+    font-size: 1.1rem;
+}
+
+#nav .nav1 {
+    position: relative;
+    padding: 0.4rem 2rem;
+    text-align: center;
+    margin: 0 4rem;
+    color: #555;
+}
+
+#nav .nav1 a:hover,
+#nav .nav1 a.active {
+    color: #8A1812;
+    font-weight: bold;
+}
+/*헤더 스타일 끝*/
+
+/*===============================================================*/
+
+/* footer 스타일 */
+footer {
+    background-color: #595959;
+    width: 100%;
+    display: flex; /* flexbox 사용 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    padding: 2rem 0; /* 상하 여백 추가 */
+    position: relative;
+}
+
+#dFoot {
+    width: 100%; /* 내부 콘텐츠의 적절한 폭 설정 */
+    margin: 0 auto; /* 콘텐츠를 가운데 정렬 */
+    color: #dfdfdf;
+    font-size: 0.8rem;
+}
+
+.footer-wrap {
+    padding: 2rem 0;
+}
+
+.footer-text {
+    width: 80%;
+    margin-bottom: 2rem;
+    margin-right: 35rem;
+}
+
+.footer-text p {
+    margin-bottom: 0.5rem;
+}
+
+.sns-menu {
+    display: flex;
+    flex-direction: row; /* 가로로 정렬 */
+    gap: 1rem; /* 이미지 간 간격 */
+    justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.sns-menu > li {
+    display: inline-block; /* li 요소들을 가로로 정렬 */
+}
+
+.sns-menu > li > a > img {
+    width: 1.8rem; /* 이미지 크기 설정 */
+}
+/* footer 스타일 끝 */
+
+/*===============================================================*/
+
+/* sidebar 스타일 */
+.sidebar {
+    position: fixed;
+    right: 120px;
+    bottom: 20px;
+    width: 75px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 0.6rem 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar.stop {
+    position: absolute;
+    right: 120px; /* 고정된 위치 유지 */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.9rem 0;
+    cursor: pointer;
+    color: #888;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.sidebar li i {
+    font-size: 1rem;
+}
+
+.sidebar li span {
+    font-size: 0.8rem;
+    margin-top: 0.7rem;
+}
+
+.sidebar li .faq {
+    font-size: 1.3rem;
+}
+
+.sidebar li:hover {
+    color: #8a1812;
+    font-weight: bold;
+}
+
+.sidebarline{
+    color: rgba(255, 255, 255, 0.6);
+    display: block;
+    text-align: center;
+    margin: 0.1rem;
+}

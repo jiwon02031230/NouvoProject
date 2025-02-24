@@ -1,0 +1,57 @@
+/*전체 큰 박스*/
+.ARU_resvUpdate_box{
+    width: 90%;
+    margin: 20px 5%;
+}
+
+/*~님의 예약 수정 text*/
+.ARU_resvInfo_text{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.ARU_bold_Text{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.ARU_horizon_line{
+    border: 2px solid black;
+}
+
+/*예약자 정보 form*/
+.ARU_container {
+    width: 80%;
+    margin: 20px 10%;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+/*입력창*/
+input, select, textarea {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* 이전으로/수정완료 버튼들*/
+.ARU_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+/*예약 취소 버튼*/
+.ARS_delete_btn{
+    text-align: right;
+}
+
+.cancel{
+    background-color: #a7a7a7;
+    border: 1px solid #a7a7a7;
+}

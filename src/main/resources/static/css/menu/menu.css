@@ -1,0 +1,413 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*배너 시작*/
+.GMbanner {
+    width: 100%;
+    height: 250px;
+    background-image: url('../../images/main/main2.jpg'); /* 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GMBantext {
+    font-family: 'S-CoreDream-3Light';
+    margin-top: 2rem;
+    font-weight: 300;
+    font-size: 2.5rem;
+}
+
+.GMBansubtext {
+    font-size: 20px;
+    margin-top: 0.3rem;
+}
+/*배너 끝*/
+
+/* 메뉴 시작 */
+.GMmenuBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.GMmenu {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Noto Sans', sans-serif;
+    text-align: center;
+}
+
+/* 상하마진 조정용 */
+.GMListbox{
+    margin-top: 8rem;
+    width: 70%;
+}
+.GMNew{
+    width: 100%;
+    display: flex;
+}
+
+/* 네비게이션 스타일 */
+.GMNavNew ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.GMnavbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GMNavNew li {
+    display: inline;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.GMNavMain {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.GMNavSub {
+    font-size: 1em;
+    color: #a7a7a7;
+    font-weight: normal;
+}
+
+.GMNavMain, .GMNavSub {
+    display: flex;
+    align-items: center;
+}
+
+
+/* 카드 리스트 스타일 */
+.GMList {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.GMCard {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+.GMCard img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+/* 이미지 감싸는 박스 */
+.GMCardImgWrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.GMCard p {
+    margin-top: 0.8rem;
+    width: 100%; /* 이미지 크기에 맞게 조정 */
+    word-wrap: break-word; /* 긴 단어도 줄바꿈 가능 */
+    text-align: center;
+}
+
+.GMListboxBottom{
+    margin-bottom: 8rem;
+}
+
+
+
+/* hover 관련 */
+/* 오버레이 (hover 시 나타남) */
+.GMOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 이미지 hover 시 밝아지면서 오버레이 나타남 */
+.GMCardImgWrapper:hover img {
+    opacity: 0.5;
+}
+
+.GMCardImgWrapper:hover .GMOverlay {
+    opacity: 1;
+}
+
+/* 수량 조절 버튼 */
+.GMQuantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.GMQuantity button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #333;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.GMQuantity input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* 장바구니 아이콘 */
+.GMCart {
+    margin: 0.3rem;
+    background: #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none; /* 기본 테두리 제거 */
+    cursor: pointer; /* 클릭 가능한 버튼 느낌 */
+    transition: background 0.2s ease-in-out; /* 부드러운 색 변화 */
+}
+
+.GMCart i {
+    font-size: 24px;
+    color: white;
+}
+
+.GMCart:hover {
+    background: #8A1812; /* 마우스 올릴 때 색 변경 */
+}
+
+/* 자세히 보기 버튼 */
+.GMDetail {
+    background: #8A1812;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.GMDetail:hover{
+    background-color: #d3ae36;
+}
+
+/*============================================*/
+
+/*모달창 시작!!!!!!!!!!*/
+/* 모달 기본 스타일 (초기 숨김) */
+.GMMmodal {
+    top: 0;
+    left: 0;
+    width: 100vw; /* 전체 화면 너비 */
+    height: 100vh; /* 전체 화면 높이 */
+    background: rgba(0, 0, 0, 0.6); /* 배경 어둡게 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 모달 최상위로 */
+    position: fixed;
+}
+
+/* 모달 본체 */
+.GMMcontain {
+    position: fixed; /* absolute → fixed 변경 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정중앙 정렬 */
+    width: 600px;
+    height: 800px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+    text-align: center;
+    z-index: 1001; /* 모달 본체가 배경보다 위로!! */
+}
+
+/* 닫기 버튼 */
+.GMMclose {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    color: #a7a7a7; /* 색 */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.GMMimg {
+    margin-top: 2rem;
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+}
+
+.GMMtitle {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    word-wrap: break-word;
+    width: 60%;
+    line-height: 1.6rem;
+}
+
+.GMMprice {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #8A1812;
+    margin-top: 0.8rem;
+}
+
+/*영양정보*/
+.GMMnutrition {
+    width: 80%;
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-top: 1.5rem;
+    border: 1px solid #595959; /* 테두리 추가 */
+    padding: 1.5rem;
+}
+
+.GMMnutrition ul {
+    text-align: center; /* ul 내부 요소 가운데 정렬 */
+}
+
+.GMMultitle {
+    font-weight: bold;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd; /* 하단 테두리 추가 */
+    text-align: center;
+}
+
+.GMMnutriopt {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.GMMnutriopt1, .GMMnutriopt2 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+}
+
+.GMMnutriopt1{
+    padding-left: 2rem;
+}
+
+.GMMnutriopt2{
+    padding-right: 2rem;
+}
+
+.GMMallergy {
+    margin-top: 0.8rem;
+    text-align: center;
+}
+/*영양정보끝*/
+
+.GMMbtmbox {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.GMMQuantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.GMMQuantity button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #333;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GMMQuantity input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    height: 32px;
+}
+
+.GMMcartbtn {
+    padding: 10px 20px;
+    background-color: #8A1812;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GMMcartbtn:hover {
+    background-color: #d3ae36;
+}

@@ -1,0 +1,284 @@
+/*메뉴 관리 시작!!!*/
+.ACaNboard {
+    position: relative;
+    width: 70%; /* 표와 동일한 너비 */
+    margin: 0 auto; /* 가운데 정렬 */
+    margin-bottom: 5rem;
+}
+
+.ACaNboard {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+
+.ACaNtext {
+    font-size: 1.2rem;
+    text-align: left;
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 0.6rem;
+    margin-left: 1rem;
+}
+
+.ACaNboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ACaNboard tr{
+    cursor: pointer;
+}
+
+.ACaNboard td a {
+    display: inline-block;
+    padding: 0.4rem 0;
+}
+
+.ACaNboard td i {
+    color: #a7a7a7;
+    margin-left: 0.3rem;
+}
+
+.ACaNboard th, .ACaNboard td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.ACaNboard th {
+    background-color: #f4f4f4;
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+}
+
+.ACaNboard tbody tr:last-child td {
+    border-bottom: 2px solid #a7a7a7;
+}
+
+/*테이블 너비 설정*/
+/* 각 열의 너비 설정 (비율) */
+.ACaNboard th:nth-child(1), .ACaNboard td:nth-child(1) {
+    width: 5%; /* 선택 */
+}
+
+.ACaNboard th:nth-child(2), .ACaNboard td:nth-child(2) {
+    width: 10%; /* 타입 */
+}
+
+.ACaNboard th:nth-child(3), .ACaNboard td:nth-child(3) {
+    width: 30%; /* 제목 */
+}
+
+.ACaNboard th:nth-child(4), .ACaNboard td:nth-child(4) {
+    width: 15%; /* 조회수 */
+}
+
+.ACaNboard th:nth-child(5), .ACaNboard td:nth-child(5) {
+    width: 15%; /* 등록일 */
+}
+
+.ACaNboard th:nth-child(6), .ACaNboard td:nth-child(6) {
+    width: 15%; /* 관리 */
+}
+
+
+/* 4열만 좌측 정렬 */
+.ACaNboard td:nth-child(3) {
+    text-align: left;
+    padding-left: 3rem;
+}
+
+#selectAll{
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.ACaNcheckbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.ACaNimg {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.ACaNboard button {
+    padding: 7px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.ACaNupdbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.8rem !important;
+    background-color: #595959;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.ACaNupdbtn:hover{
+    background-color: #2e2e2e;
+}
+
+.ACaNbtns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    margin-right: 1rem;
+}
+
+/* 삭제 버튼 스타일 */
+.ACaNdelbtn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background-color: #a7a7a7;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.ACaNdelbtn:hover {
+    background-color: #595959;
+}
+
+/* 글쓰기 버튼 스타일 */
+.ACaNwritebtn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background-color: #8A1812;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.ACaNwritebtn:hover {
+    background-color: #d3ae36;
+}
+
+/* 이전으로 버튼 */
+.ACaNprev {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    margin-top: 1rem; /* 위쪽 여백 */
+}
+
+.ACaNprevbtn {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background-color: #777;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.ACaNprevbtn:hover {
+    background-color: #555;
+}
+
+.ACaNprevbtn:hover {
+    background-color: #555;
+}
+
+/*페이지네이션*/
+.ACaNpagination {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 정렬 */
+    gap: 5px;
+}
+
+.ACaNpagination a {
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #a7a7a7;
+    display: inline-block; /* 인라인 블록 요소로 정렬 */
+    line-height: 1.5; /* 세로 중앙 정렬 */
+}
+
+#pageNumbers {
+    display: flex; /* 가로 정렬 */
+    gap: 5px;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.ACaNpagination a.active {
+    background-color: #a7a7a7;
+    color: white;
+}
+/*문의게시판 table 끝*/
+
+/*=============================================*/
+
+/*공지사항 서치바 시작*/
+
+.ACaNsearch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.ACaNsearch ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.ACaNsearch li {
+    display: flex;
+    align-items: center;
+}
+
+/* 셀렉트 박스 스타일 */
+.ACaNselect1,
+.ACaNselect2{
+    padding: 0.3rem 1.5rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+/* 입력 필드 스타일 */
+.ACaNsearch input[type="text"] {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-size: 14px;
+    width: 500px;
+}
+
+/* 버튼 스타일 */
+.ACaNCombtn {
+    background-color: #8a1812;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    padding: 0.7rem 1.2rem;
+    white-space: nowrap;
+}
+
+.ACaNCombtn:hover {
+    background-color: #d3ae36;
+}
+
+/*공지사항 서치바 끝*/

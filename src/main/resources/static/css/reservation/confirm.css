@@ -1,0 +1,101 @@
+.GRmain {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 6rem;
+}
+
+/*체크 아이콘 + 예약 완료 텍스트 박스*/
+.GR_confirm_text_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 6rem;
+}
+
+.GR_confirm_text_box i {
+    font-size: 3rem;
+    margin-right: 1rem;
+    color: #66bb6a;
+}
+
+/*체크모양 아이콘 설정*/
+.bi-check-circle{
+    color: #a1a1a1;
+}
+
+/*예약완료 텍스트*/
+.GR_confirm_text{
+    font-size: 1.5rem;
+}
+
+/*예약자 정보, 예약정보 텍스트*/
+.GR_confirm_bold_text{
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-left: 2rem;
+}
+
+.GR_confirm_reserver, .GR_confirm_reservation {
+    text-align: left;
+    width: 46%;
+}
+
+.GR_confirm_info_box {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.GR_reserver_detail, .GR_reservation_detail {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem auto;
+    padding: 0 3rem;
+    gap: 1rem;
+}
+
+.GR_reserver_detail li, .GR_reservation_detail li {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* 버튼 스타일 */
+.GR_confirm_btn_box {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.GRhomebtn {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background-color: #a7a7a7;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.GRhomebtn:hover {
+    background-color: #595959;
+}
+
+.GRcheckbtn {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    background-color: #8A1812;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.GRcheckbtn:hover {
+    background-color: #d3ae36;
+}

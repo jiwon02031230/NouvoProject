@@ -1,0 +1,330 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*배너 시작*/
+.GILbanner {
+    width: 100%;
+    height: 300px;
+    background-image: url('../../images/main/main2.jpg'); /* 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.GILBantext {
+    font-family: 'S-CoreDream-3Light';
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBansubtext {
+    font-size: 20px;
+    margin-top: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBanbtn {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.GILBanbtn li {
+    flex: 1; /* 동일한 크기 유지 */
+    width: 200px; /* 최대 너비 설정 (선택) */
+    list-style: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.GILBanbtn li:hover {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* 기본 hover 효과 */
+.GILBanbtn li:hover{
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* active 상태에 hover와 같은 스타일 추가 */
+.GILBanbtn li.active {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+/*배너 끝*/
+
+/*=================================================*/
+
+/*고객의소리 시작*/
+.GILFboard {
+    position: relative;
+    width: 70%; /* 표와 동일한 너비 */
+    margin: 5rem auto; /* 가운데 정렬 */
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*상위텍스트 시작*/
+.GILFtoptext {
+    width: 100%;
+    display: flex;
+    align-items: flex-end; /* 바닥을 맞추는 정렬 */
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.GILFtext {
+    font-size: 1.5rem;
+    text-align: left;
+    flex: 0 auto; /* 고정 크기 유지 */
+    white-space: nowrap;
+}
+
+.GILFbottomtext {
+    color: #595959;
+    font-size: 0.9rem;
+    flex-grow: 1; /* 남은 공간 차지 */
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+/*필수입력*/
+.GILFtopmust {
+    width: 100%;
+    display: flex;
+    text-align: left;
+    margin: 1rem;
+    margin-left: 1.2rem;
+    font-size: 0.8rem;
+}
+
+.GILFtopmust span{
+    color: red;
+}
+
+
+/*상위 텍스트 끝*/
+
+/*=======================================*/
+
+/*테이블 시작*/
+
+.GILFformsection {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.GILFformsection td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.GILFformsection td:nth-child(2) {
+    padding-left: 10rem; /* 두 번째 열만 오른쪽으로 밀기 */
+}
+
+/* 테이블 첫 번째 줄과 마지막 줄에 색 추가 */
+.GILFformsection tr:first-child td {
+    border-top: 2px solid #a7a7a7;
+}
+
+.GILFformsection tr:last-child td {
+    border-bottom: 1px solid #a7a7a7;
+}
+
+.GILFrequired::before {
+    content: "*";
+    color: red; /* 별표 색 */
+    font-size: 1rem; /* 별표 크기 */
+    margin-right: 0.6rem; /* 글자와 간격 */
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+.GILFrequired_no::before {
+    content: "*";
+    visibility: hidden; /* 안 보이게 설정 */
+    margin-right: 0.6rem;
+    margin-left: 1.5rem;
+}
+
+input.form-control,
+select.form-control {
+    border-radius: 0;
+}
+
+input[type="text"],
+input[type="tel"] {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 60%;
+}
+
+input[type="email"] {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 45%;
+}
+
+.GILFinputemail {
+    padding: 0.2rem;
+    border: 1px solid #ddd;
+    width: 40%;
+}
+
+input[type="title"] {
+    padding: 0.3rem;
+    border: 1px solid #ddd;
+    width: 90%;
+}
+
+/*텍스트에리어 크기 설정*/
+.GILFcontentbox {
+    width: 90%;
+    height: 150px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    resize: vertical;
+}
+
+/*동의*/
+.GILFrequibox{
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.4;/*줄간격!!*/
+    background-color: #f1f1f1;
+}
+
+.GILFrequired {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.GILFformcheck {
+    width: 90%;
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.8rem;
+    justify-content: flex-end;
+}
+
+.GILFformcheck label {
+    display: flex;
+    align-items: center; /* 라디오 버튼과 텍스트 세로 정렬 */
+}
+
+.GILFformcheck input[type="radio"] {
+    margin-right: 0.5rem; /* 라디오 버튼과 텍스트 사이 간격 */
+}
+
+.GILFbtnbox {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.GILFbtnreset{
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #a7a7a7;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.GILFbtnreset:hover{
+    background-color: #2e2e2e;
+}
+
+.GILFbtnsubmit {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #8a1812;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.GILFbtnsubmit:hover {
+    background-color: #d3ae36;
+}
+
+/* 개인정보수집 동의 체크박스*/
+.GR_agree_check{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.GR_agree_checkbox, .GR_disagree_checkbox{
+    display: flex;
+    align-items: center;
+}
+
+.GR_radio_btn {
+    appearance: none; /* 기본 라디오 버튼 숨기기 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #a1a1a1;
+    border-radius: 4px; /* 네모 모양 유지 */
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px;
+}
+
+.GR_radio_btn:checked {
+    border-color: #8A1812; /* 체크 시 테두리 빨간색 */
+    background-color: white; /* 체크 시에도 배경 유지 */
+}
+
+.GR_radio_btn:checked::before {
+    content: '✔';  /* 체크 표시 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: #8A1812; /* 체크 표시 색상 */
+    font-weight: bold;
+}
+
+.checkboxes{
+    display: flex;
+    gap: 1rem;
+}

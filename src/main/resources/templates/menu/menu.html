@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO MENU</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- 제이쿼리 라이브러리-->
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+
+    <script th:src="@{/js/header.js}"></script>
+    <script th:src="@{/js/menu/menu.js}"></script>
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/menu/menu.css}">
+
+    <!--로그인 모달-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/css/login/modal.css">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/header :: header"></th:block>
+
+<!-- 메뉴 배너 -->
+<div class="GMbanner">
+    <div class="GMBantext">MENU</div>
+    <div class="GMBansubtext">메뉴</div>
+</div><!-- 메뉴 배너 끝-->
+
+<!-- 메뉴 시작-->
+<div  th:each="category,no:${categories}" class="GMmenuBox" th:id="'category'+${category.id}">
+
+    <!--전체 반복 -->
+    <div class="GMListbox" ><!-- 상하마진조정용 -->
+
+        <!-- 카테고리 반복 -->
+        <div class="GMNavNew">
+            <ul>
+                <div th:each="category, num:${categories}" class="GMnavbox">
+                    <li th:class="${no.index+1 == category.id} ? 'GMNavMain' : 'GMNavSub'">
+                        <a th:text="${category.categoryName}"></a>
+                    </li>
+                    <li class="GMNavSub" th:if="!${num.last}">|</li>
+                </div>
+            </ul>
+
+        </div><!-- 카테고리 반복 끝 -->
+
+        <div class="GMNew row"> <!-- js 위치 조정용 -->
+
+            <!-- 메뉴+ 모달 (반복) -->
+            <div class="GMList col-3" th:each="menu:${categorizedMenus[category.id]}" th:id="${menu.id}">
+
+                <!--카드1 :메뉴 -->
+                <div class="GMCard">
+                    <div class="GMCardImgWrapper">
+                        <img th:src="@{'/images/menu/'+${menu.menuImageUrl}}" th:alt="${menu.menuName}">
+                        <div class="GMOverlay">
+                            <div class="GMQuantity">
+                                <button class="GMinus">-</button>
+                                <input type="text" value="1">
+                                <button class="GMplus">+</button>
+                            </div>
+                            <button class="GMCart">
+                                <i class="bi bi-cart4"></i>
+                            </button>
+                            <button class="GMDetail">자세히 보기</button>
+                        </div>
+                    </div>
+                    <p th:text="${menu.menuName}"></p>
+                    <p th:text="${menu.menuPrice}+'원'"></p>
+                </div><!--카드1 끝-->
+
+                <!-- 모달 시작!!!!!!!!!!!!!!!!!!!  -->
+                <div class="GMMmodal" style="display: none;"> <!-- 초기 상태를 숨김 -->
+                    <div class="GMMcontain">
+                        <button class="GMMclose"><i class="bi bi-x-lg"></i></button>
+                        <img class="GMMimg" th:src="@{'/images/menu/'+${menu.menuImageUrl}}"
+                             th:alt="${menu.menuImageUrl}">
+                        <div class="GMMtitle" th:text="${menu.menuName}"></div>
+                        <p class="GMMprice" th:text="${menu.menuPrice}+'원'"></p>
+
+                        <div class="GMMnutrition">
+                            <ul>
+                                <li class="GMMultitle"><strong>영양정보</strong></li>
+                                <li>
+                                    <div class="GMMnutriopt">
+                                        <div class="GMMnutriopt1">
+                                            <span>열량 kcal</span>
+                                            <span>단백질 g(%)</span>
+                                            <span>나트륨 mg(%)</span>
+                                            <span>당류 g</span>
+                                        </div>
+
+                                        <div class="GMMnutriopt2">
+                                            <span th:text="${menu.menuKcal}"></span>
+                                            <span th:text="${menu.menuProtein}"></span>
+                                            <span th:text="${menu.menuNa}"></span>
+                                            <span th:text="${menu.menuSugar}"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="GMMallergy" th:text="'알러지 정보 : '+${menu.menuAllergens}+'포함'"></li>
+                            </ul>
+                        </div>
+
+                        <div class="GMMbtmbox">
+                            <div class="GMMQuantity">
+                                <button class="GMMinus">-</button>
+                                <input type="text" value="1">
+                                <button class="GMMplus">+</button>
+                            </div>
+                            <button class="GMMcartbtn">장바구니 담기</button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- 모달 끝!!!!!!!!!!!!!!!!!!!  -->
+            </div><!-- 신메뉴 반복구간 끝 -->
+
+        </div><!-- 신메뉴 목록 끝 -->
+    </div><!-- 신메뉴 끝!!!!!!!! -->
+
+
+</div><!--메뉴 끝-->
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+
+<!--사이드바-->
+<th:block th:replace="common/sidebar :: sidebar"></th:block>
+</body>
+</html>

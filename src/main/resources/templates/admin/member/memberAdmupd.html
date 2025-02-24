@@ -1,0 +1,167 @@
+<!-- 관리자 회원 수정 페이지!! -->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUOVO</title>
+
+  <!-- 파비콘 -->
+  <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+  <!-- 부트스트랩 라이브러리 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- 부트스트랩 아이콘 CDN 추가 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- 제이쿼리 라이브러리-->
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" th:href="@{/css/basic.css}">
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/admin/admBanner.css}">
+  <link rel="stylesheet" th:href="@{/css/admin/member/memberAdmupd.css}">
+
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/admHeader :: admHeader"></th:block>
+
+<!-- 메뉴 배너 -->
+<div class="Admbanner">
+  <div class="AdmBantext">관리자 페이지</div>
+  <div class="AdmBansubtext">NUOVO 레스토랑</div>
+  <ul class="AdmBanbtn">
+    <a href="/adm/reservation"><li id="admReservation_tab">예약 관리</li></a>
+    <a href="/adm/member"><li id="admMember_tab" class="active">회원 관리</li></a>
+    <a href="/adm/community" ><li id="admCommunity_tab">고객지원 관리</li></a>
+    <a href="/adm/menu" ><li id="admMenu_tab">메뉴 관리</li></a>
+  </ul>
+</div><!-- 메뉴 배너 끝-->
+
+<main class="APamain">
+
+    <form>
+      <!--내정보 수정 table-->
+      <div class="APaupdbox">
+        <div class="APatext">개인정보 수정</div>
+        <table class="APainfotable">
+
+          <colgroup>
+            <col style="width: 20%; min-width: 170px;"> <!-- 첫 번째 열 -->
+            <col style="width: 80%;"> <!-- 두 번째 열 -->
+          </colgroup>
+
+          <tr>
+            <td>이름</td>
+            <td>
+              <div class="APainputuname">
+                <input type="text" value="유채원">
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>아이디</td>
+            <td>
+              <div class="APainputuid APapk">
+                <input type="text" value="choewon00">
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>비밀번호</td>
+            <td>
+              <div class="APainputupw APapk">
+                <input type="password" value="choewon00">
+                <button class="APainputupwbtn">초기화</button>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>휴대폰번호</td>
+            <td>
+              <div class="APainputwraptell">
+                <input type="text" placeholder="전화번호를 입력해주세요" value="010-1234-1234">
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>이메일</td>
+            <td>
+              <div class="APainputwraptell">
+                <input type="text" placeholder="example@nuovo.com 형식으로 입력해주세요." value="choewon@gmail.com">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>생년월일</td>
+            <td class="APabirth">
+              <div class="birth-group">
+                <select><option>년</option></select>
+                <span>년</span>
+              </div>
+              <div class="birth-group">
+                <select><option>월</option></select>
+                <span>월</span>
+              </div>
+              <div class="birth-group">
+                <select><option>일</option></select>
+                <span>일</span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>성별</td>
+            <td class="APagender">
+              <label><input type="radio" name="gender"> 여자</label>
+              <label><input type="radio" name="gender"> 남자</label>
+              <label><input type="radio" name="gender"> 선택안함</label>
+            </td>
+          </tr>
+
+          <tr>
+            <td>관리자 메모</td>
+            <td>
+              <div class="APainputmemo">
+                <textarea>갑각류 알러지 있음.</textarea>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+
+        <div class="APadelbox">
+          <button class="APadelbtn">회원 삭제</button>
+        </div>
+
+        <div class="APabtns">
+          <a href="javascript:history.back()" class="APaprevbtn">이전으로</a>
+          <button class="AParebtn" type="reset">다시 쓰기</button>
+          <button class="APasubtn">수정 완료</button>
+        </div>
+
+      </div>
+    </form>
+
+</main><!--회원 수정 끝-->
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+<!-- 자바스크립트 -->
+<script th:src="@{/js/admin/memberAdmupd.js}"></script>
+</body>
+</html>

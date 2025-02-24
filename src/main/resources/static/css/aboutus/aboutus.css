@@ -1,0 +1,79 @@
+/* 전체 레이아웃 */
+.GUcontainer {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 5rem
+}
+
+/* 중앙 정렬 */
+.GUcontent {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* 제목 스타일 */
+.GUh2 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* 강조 텍스트 */
+.GUbold {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* 기울임꼴 */
+.GUitalic {
+    font-style: italic;
+}
+
+.GUp{
+    margin-bottom: 0.5rem;
+}
+
+.GUline{
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* 로고 이미지 */
+.GUlogo {
+    max-width: 150px;
+    margin: 1rem;
+    margin-top: 6rem;
+}
+
+/* 본문 이미지 */
+.GUimg {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 가로 구분선 */
+.GUdivider {
+    width: 30rem;
+    margin: 5rem auto;
+}
+
+/* 지도 스타일 */
+.GUmap {
+    width: 600px;
+    height: 350px;
+    margin: 1rem auto;
+}
+
+/* 주소 박스 */
+.GUaddress {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* 주소 텍스트 여백 */
+.GUaddress p {
+    margin: 0.5rem ;
+}

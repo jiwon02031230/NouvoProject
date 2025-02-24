@@ -1,0 +1,231 @@
+<!--관리자 고객지원 관리: 공지사항 페이지-->
+
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 부트스트랩 아이콘 CDN 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- 제이쿼리 라이브러리-->
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/admBanner.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/community/communityAdmnotice.css}">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../static/css/community/communityMain.css">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/admHeader :: admHeader"></th:block>
+
+<!-- 메뉴 배너 -->
+<div class="Admbanner">
+    <div class="AdmBantext">관리자 페이지</div>
+    <div class="AdmBansubtext">NUOVO 레스토랑</div>
+    <ul class="AdmBanbtn">
+        <a href="/adm/reservation"><li id="admReservation_tab">예약 관리</li></a>
+        <a href="/adm/member"><li id="admMember_tab">회원 관리</li></a>
+        <a href="/adm/community"><li class="active" id="admCommunity_tab">고객지원 관리</li></a>
+        <a href="/adm/menu" ><li id="admMenu_tab">메뉴 관리</li></a>
+    </ul>
+</div><!-- 메뉴 배너 끝-->
+
+<main class="ACamain">
+
+    <div class="ACaNboard">
+
+        <!-- 메뉴 관리 text -->
+        <div class="ACaNtext"><a href="/adm/community">고객지원 게시판 관리</a> > 공지사항</div>
+
+        <!-- 게시판 내용 -->
+        <table>
+            <thead>
+            <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>타입</th>
+                <th>제목</th>
+                <th>조회수</th>
+                <th>등록일</th>
+                <th>관리</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr onclick="window.location.href='/adm/community';"><!--항목 추가 시작!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/community/noticeupd" class="ACaNupdbtn">수정</a></td>
+            </tr><!--항목 추가 끝!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+<!--항목추가 이 아래서부터 삭제!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="ACaNcheckbox"></td>
+                <td>공지</td>
+                <td>설 연휴 휴무 안내</td>
+                <td>250</td>
+                <td>2025-01-29</td>
+                <td><a href="/adm/menuupd" class="ACaNupdbtn">수정</a></td>
+            </tr>
+<!--항목추가 이 위까지 삭제!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+            </tbody>
+        </table><!-- 게시판 내용 끝 -->
+
+        <!-- 버튼 -->
+        <div class="ACaNbtns">
+            <a href="#" class="ACaNdelbtn">삭제</a>
+            <a href="/adm/community/noticeadd" class="ACaNwritebtn">글쓰기</a>
+        </div>
+
+        <div class="ACaNpagination">
+            <a href="#" id="prevPage">«</a>
+            <span id="pageNumbers"></span>
+            <a href="#" id="nextPage">»</a>
+        </div>
+
+        <!-- 서치바 시작 -->
+        <div class="ACaNsearch">
+            <ul>
+                <!--셀렉트박스-->
+                <li>
+                    <select class="ACaNselect1">
+                        <option value="">선택</option>
+                        <option value="all">전체</option>
+                        <option value="common">일반</option>
+                        <option value="notice">공지</option>
+                    </select>
+                </li>
+                <li>
+                    <select class="ACaNselect2">
+                        <option value="">선택</option>
+                        <option value="title">제목</option>
+                        <option value="substance">내용</option>
+                        <option value="substanceadd">제목+내용</option>
+                    </select>
+                </li> <!--셀렉트박스 끝-->
+                <li>
+                    <input type="text" placeholder="검색어를 입력하세요">
+                </li>
+                <li>
+                    <a class="ACaNCombtn">검색</a>
+                </li>
+            </ul>
+        </div><!-- 서치바 끝 -->
+
+        <!-- 이전으로 -->
+        <div class="ACaNprev">
+            <a href="#" class="ACaNprevbtn" onclick="history.back();">이전으로</a>
+        </div>
+    </div><!-- 메뉴관리 끝!!!! -->
+
+</main>
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+<!-- 자바스크립트 -->
+<script th:src="@{/js/admin/communityAdmnotice.js}"></script>
+</body>
+
+</html>

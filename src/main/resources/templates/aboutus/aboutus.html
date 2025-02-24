@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABOUT NUOVO</title>
+
+  <!-- 파비콘 -->
+  <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+  <!-- 부트스트랩 라이브러리 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <!-- 제이쿼리 라이브러리-->
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+  <script th:src="@{/js/header.js}"></script>
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" th:href="@{/css/basic.css}">
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+
+  <!-- aboutus 스타일시트 -->
+  <link rel="stylesheet" th:href="@{/css/aboutus/aboutus.css}">
+
+  <!-- 구글 지도 API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+
+  <!-- 구글폰트 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/header :: header"></th:block>
+
+<!-- About Us 시작 -->
+<div class="GUcontainer">
+
+  <!-- 로고 -->
+  <div class="GUcontent">
+    <img th:src="@{../images/common/logo01.png}" alt="로고" class="GUlogo">
+  </div>
+
+  <!-- 설명 -->
+  <div class="GUcontent">
+    <h2 class="GUh2"><span class="GUbold">"새로운"</span> 이라는 의미의 이탈리아어</h2>
+    <p class="GUp">일반적으로 새롭거나 혁신적인 것을 나타낼 때 사용되는</p>
+    <p class="GUp">이탈리아어 형용사로, 영어의 "new"와 같은 의미를 갖습니다.</p>
+    <span class="GUline">
+    <p class="GUp">NUOVO는 전통적인 이탈리안 요리와 현대적인 감각이 조화를</p>
+    <p class="GUp">이루는 레스토랑으로, 신선한 재료와 정성으로 준비됩니다.</p>
+    </span>
+  </div>
+
+  <!-- 구분선 -->
+  <hr class="GUdivider">
+
+  <!-- 이미지 -->
+  <div class="GUcontent">
+    <img th:src="@{/images/aboutus/about1.jpg}" alt="이미지1" class="GUimg">
+  </div>
+
+  <!-- 추가 설명 -->
+  <div class="GUcontent">
+    <h2 class="GUh2 GUitalic">NUOVO 레스토랑은 최고의 다이닝 경험을 제공합니다.</h2>
+    <p class="GUp">누오보는 한국 제철 식자재를 이탈리안 스타일의 요리로 풀어내는 코리안 이탈리안 파인 다이닝입니다.</p>
+    <p class="GUp">생소한 식재료를 사용하여 이해를 강요하는 것이 아니라, 우리에게 친숙하고 익숙한 한국의 식자재를</p>
+    <p class="GUp">적극 활용하여 누구나 접근하고 비평할 수 있는 재미를 선사합니다.</p>
+    <span class="GUline">
+    <p class="GUp">누오보의 요리는 단순히 배고픔을 달래는 것에 그치지 않습니다. 일상에 신선한 자극과 감동을 줄 수 있는</p>
+    <p class="GUp">'미식 경험'을 제공합니다. 더 많은 사람들이 이를 경험할 수 있도록, 또한 이 모든 경험이 지속 가능하도록</p>
+    <p class="GUp">합리적인 가격의 요리를 선보입니다.</p>
+    </span>
+  </div>
+
+  <!-- 구분선 -->
+  <hr class="GUdivider">
+
+  <!-- 오시는 길 -->
+  <div class="GUcontent">
+    <h4 class="GUbold">오시는 길</h4>
+
+    <!-- 지도 -->
+    <div id="map" class="GUmap"></div>
+
+    <!-- 주소 -->
+    <div class="GUaddress">
+      <p><strong>도로명:</strong> 서울 서초구 동광로 164</p>
+      <p><strong>지번:</strong> 서울 서초구 반포동 577-20</p>
+    </div>
+  </div>
+
+</div>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3421c45bc9297bec987e5e369337846a"></script>
+    <script>
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+              mapOption = {
+                center: new kakao.maps.LatLng(37.494709979060936, 126.99999151887668), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+              };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 마커가 표시될 위치입니다
+      var markerPosition  = new kakao.maps.LatLng(37.494709979060936, 126.99999151887668);
+
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+        position: markerPosition
+      });
+
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+
+    </script>
+  </div>
+
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+
+<!--사이드바-->
+<th:block th:replace="common/sidebar :: sidebar"></th:block>
+
+<script th:src="@{/js/aboutus/aboutus.js}"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*배너 시작*/
+.GILbanner {
+    width: 100%;
+    height: 300px;
+    background-image: url('../../images/main/main2.jpg'); /* 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.GILBantext {
+    font-family: 'S-CoreDream-3Light';
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBansubtext {
+    font-size: 20px;
+    margin-top: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBanbtn {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.GILBanbtn li {
+    flex: 1; /* 동일한 크기 유지 */
+    width: 200px; /* 최대 너비 설정 (선택) */
+    list-style: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.GILBanbtn li:hover {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* 기본 hover 효과 */
+.GILBanbtn li:hover{
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* active 상태에 hover와 같은 스타일 추가 */
+.GILBanbtn li.active {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+/*배너 끝*/
+
+/*상단 텍스트박스 시작*/
+.GMyRLtopText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 700px;
+}
+
+.GMyRLtopText li {
+    margin: 0.2rem 0;
+}
+
+.GMyRLtopText .GMyRLtopMaintext {
+    font-size: 1rem;
+    color: #333;
+}
+
+.GMyRLtopText .GMyRLtopSubtext {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+}
+/*상단 텍스트박스 끝*/
+
+
+/*문의게시판 table 시작*/
+.GMyRLboard {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.GMyRLtext {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.GMyRLtext .GMyRLtext1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.GMyRLtext .GMyRLtext2 {
+    font-size: 1rem;
+    color: #666;
+}
+
+/*테이블 정렬*/
+.GMyRLboard table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.GMyRLboard th, .GMyRLboard td {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    vertical-align: middle; /* 기본적으로 가운데 정렬 */
+}
+
+.GMyRLboard th {
+    background-color: #f4f4f4;
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+    padding: 0.7rem 0;
+}
+
+.GMyRLboard td {
+    text-align: center;  /* 데이터 셀도 가운데 정렬 */
+    vertical-align: middle;  /* 텍스트 세로 가운데 정렬 */
+    padding: 1rem 0;
+}
+
+.GMyRLboard tbody tr{
+    cursor: pointer;
+}
+
+.GMyRLboard tbody tr:last-child td {
+    border-bottom: 2px solid #a7a7a7; /* 두께 증가 */
+}
+
+/*테이블 너비 설정*/
+/* 각 열의 너비 설정 (비율) */
+.GMyRLboard th:nth-child(1), .GMyRLboard td:nth-child(1) {
+    width: 15%; /* 예약자 */
+}
+
+.GMyRLboard th:nth-child(2), .GMyRLboard td:nth-child(2) {
+    width: 10%; /* 예약인원 */
+}
+
+.GMyRLboard th:nth-child(3), .GMyRLboard td:nth-child(3) {
+    width: 20%; /* 예약일시 */
+}
+
+.GMyRLboard th:nth-child(4), .GMyRLboard td:nth-child(4) {
+    width: 10%; /* 이용시간 */
+}
+
+.GMyRLboard th:nth-child(5), .GMyRLboard td:nth-child(5) {
+    width: 15%; /* 결제금액 */
+}
+
+.GMyRLboard th:nth-child(6), .GMyRLboard td:nth-child(6) {
+    width: 20%; /* 예약현황 */
+}
+
+/*방문 완료건 배경 색 변경*/
+#GMyRLinvalid {
+    color: #999;
+    background-color: #f4f4f4;
+}
+
+/* 버튼 스타일 */
+.GMyRLboard button {
+    padding: 7px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.GMyRLtbbtn a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.GMyRLdelbtn {
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.GMyRLdelbtn:hover {
+    background-color: #595959;
+}
+
+.GMyRLeditbtn {
+    background-color: #2e2e2e;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.GMyRLeditbtn:hover {
+    background-color: #595959;
+}
+
+
+
+/*페이지네이션*/
+
+.GILpagination {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 정렬 */
+    gap: 5px;
+}
+
+.GILpagination a {
+    padding: 4px 10px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #a7a7a7;
+    display: inline-block; /* 인라인 블록 요소로 정렬 */
+    line-height: 1.5; /* 세로 중앙 정렬 */
+}
+
+#pageNumbers {
+    display: flex; /* 가로 정렬 */
+    gap: 5px;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.GILpagination a.active {
+    background-color: #a7a7a7;
+    color: white;
+}
+/*문의게시판 table 끝*/

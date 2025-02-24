@@ -1,0 +1,44 @@
+<header th:fragment="admHeader">
+  <div class="navtop">
+    <!-- 로고 -->
+    <div class="logo">
+      <a href="/main"><img src="/images/common/logo01.png"></a>
+    </div>
+    <!-- 로그인/회원가입 -->
+    <div class="loginJoin">
+      <p>관리자님 환영합니다</p> &nbsp;&nbsp;
+      <a href="/logout" class="logout">로그아웃</a> <!-- 로그아웃 버튼  -->
+    </div>
+  </div>
+
+  <!-- header -->
+  <div id="header">
+
+    <!-- 네비게이션 -->
+    <ul id="nav">
+      <li class="nav1">
+        <a href="/aboutus">누오보</a>
+        <ul class="inner_menu">
+        </ul>
+      </li>
+
+      <li class="nav1">
+        <a href="/menu">메뉴</a>
+      </li>
+
+      <li class="nav1">
+        <a href="/reservation">예약</a>
+      </li>
+
+      <li class="nav1">
+        <a href="/community">고객지원</a>
+      </li>
+
+      <li class="nav1">
+        <a href="/adm/reservation">관리자페이지</a>
+      </li>
+    </ul>
+  </div>
+  <!-- header 끝 -->
+
+</header>

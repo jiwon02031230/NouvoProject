@@ -1,0 +1,254 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*배너 시작*/
+.GILbanner {
+    width: 100%;
+    height: 300px;
+    background-image: url('../../images/main/main2.jpg'); /* 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.GILBantext {
+    font-family: 'S-CoreDream-3Light';
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBansubtext {
+    font-size: 20px;
+    margin-top: 0.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.GILBanbtn {
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.GILBanbtn li {
+    flex: 1; /* 동일한 크기 유지 */
+    width: 200px; /* 최대 너비 설정 (선택) */
+    list-style: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.GILBanbtn li:hover {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* 기본 hover 효과 */
+.GILBanbtn li:hover{
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+
+/* active 상태에 hover와 같은 스타일 추가 */
+.GILBanbtn li.active {
+    background-color: #8a1812;
+    font-weight: bold;
+    color: white;
+}
+/*배너 끝*/
+
+/*상단 텍스트박스 시작*/
+.GMyRdetopText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 700px;
+}
+
+.GMyRdetopText li {
+    margin: 0.2rem 0;
+}
+
+.GMyRdetopText .GMyRdetopMaintext {
+    font-size: 1rem;
+    color: #333;
+}
+
+.GMyRdetopText .GMyRdetopSubtext {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+}
+/*상단 텍스트박스 끝*/
+
+
+/*문의게시판 table 시작*/
+.GMyRdeboard {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.GMyRdetext {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.GMyRdetext1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.GMyRdetext2 {
+    font-size: 1.1rem;
+}
+
+.GMyRdeboard table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 2px solid #a7a7a7;
+    font-size: 16px;
+}
+
+.GMyRdeboard th,
+.GMyRdeboard td{
+    padding: 1.2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+.GMyRdeboard th {
+    text-align: left;
+    font-weight: bold;
+    width: 15%;
+}
+
+/* 두 번째 열과 네 번째 열을 더 가깝게 */
+.GMyRdeboard td {
+    width: 35%;
+}
+
+/*버튼 스타일*/
+.GMyRdebtns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2.2rem;
+    margin-top: 0.8rem;
+    margin-right: 1rem;
+}
+
+.GMyRdebtns a {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.GMyRdecancel{
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.GMyRdecancel:hover{
+    background-color: #595959;
+}
+
+.GMyRdeupdate{
+    background-color: #2e2e2e;
+    color: white;
+}
+
+.GMyRdeupdate:hover{
+    background-color: #595959;
+}
+
+.GMyRdeboard2{
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.GMyRdeprev{
+    display: flex;
+    justify-content: center;
+}
+
+.GMyRdeprev a{
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.GMyRdeprev a:hover{
+    background-color: #2e2e2e;
+}
+
+
+/*지도*/
+/* 중앙 정렬 */
+.GMyRdecontent {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+.GMyRdebold {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* 지도 스타일 */
+.GMyRdemap {
+    width: 80%;
+    height: 400px;
+    margin: 1rem auto;
+}
+
+/* 주소 박스 */
+.GMyRdeaddress {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* 주소 텍스트 여백 */
+.GMyRdeaddress p {
+    margin: 0.5rem ;
+}

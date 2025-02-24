@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 부트스트랩 아이콘 CDN 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- 제이쿼리 라이브러리-->
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/admBanner.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/reservation/resvSettingAdm.css}">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/admHeader :: admHeader"></th:block>
+
+<!-- 메뉴 배너 -->
+<div class="Admbanner">
+    <div class="AdmBantext">관리자 페이지</div>
+    <div class="AdmBansubtext">NUOVO 레스토랑</div>
+    <ul class="AdmBanbtn">
+        <a href="/adm/reservation" ><li id="admReservation_tab" class="active">예약 관리</li></a>
+        <a href="/adm/member"><li id="admMember_tab">회원 관리</li></a>
+        <a href="/adm/community" ><li id="admCommunity_tab">고객지원 관리</li></a>
+        <a href="/adm/menu" ><li id="admMenu_tab">메뉴 관리</li></a>
+    </ul>
+</div><!-- 메뉴 배너 끝-->
+
+<main class="container">
+
+    <!--Css classname : ARS(Admin Reservation Setting)-->
+    <div>
+        <div class="ARS_resvDate_row">
+            <p> </p>
+            <p id="ARS_date">2025-01-25 (수)</p>
+            <button type="button" class="btn btn-dark"><a href="">휴무일 설정</a></button>
+        </div>
+
+        <div class="ARa_lunchTable">
+            <table>
+                <tr class="ARS_table_head">
+                    <th colspan="3">점심</th>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">11:00</td>
+                    <td id="ARS_lunch_11">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">12:00</td>
+                    <td id="ARS_lunch_12">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">13:00</td>
+                    <td id="ARS_lunch_13">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">14:00</td>
+                    <td id="ARS_lunch_14">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="ARS_dinnerTable">
+            <table>
+                <tr class="ARS_table_head">
+                    <th colspan="3">저녁</th>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">17:00</td>
+                    <td id="ARS_dinner_17">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+                <!-- 예약이 있는 경우 -->
+                <tr>
+                    <td class="ARS_time_table">18:00</td>
+                    <td id="ARS_dinner_18">
+                        <p>홍길동(3명)</p>
+                        <p>010-0000-0000</p>
+                        <p>예약메뉴</p>
+                        <table>
+                            <tr>
+                                <th>이름</th>
+                                <th>수량</th>
+                            </tr>
+                            <tr>
+                                <td>맛있는 신메뉴</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>그저그런메뉴</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        <p>기타요청 :</p>
+                        <p>땅콩 알러지. 아기의자 필요함.</p>
+                    </td>
+                    <td class="ARS_button_table" >
+                        <button type="button" class="btn btn-dark"><a href="/adm/resvUpdate">예약수정</a></button><br>
+                        <button type="button" class="btn btn-dark"><a href="">예약취소</a></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">19:00</td>
+                    <td id="ARS_dinner_19">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+                <tr>
+                    <td class="ARS_time_table">20:00</td>
+                    <td id="ARS_dinner_20">-</td>
+                    <td class="ARS_button_table"><button type="button" class="btn btn-dark unavailable"><a href="">예약불가<br>설정</a></button></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="ARS_button_div">
+            <button type="button" class="btn btn-dark"><a href="/adm/reservation">이전으로</a></button>
+        </div>
+
+    </div>
+
+
+</main>
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+</body>
+<!-- 자바스크립트 -->
+
+</html>

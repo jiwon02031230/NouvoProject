@@ -1,0 +1,133 @@
+
+
+<header th:fragment="header">
+    <div class="navtop">
+        <!-- 로고 -->
+        <div class="logo">
+            <a href="/main"><img src="/images/common/logo01.png"></a>
+        </div>
+        <!-- 로그인/회원가입 -->
+        <div class="loginJoin">
+
+
+            <div class="loginaccess">
+                <!-- 비로그인 상태 -->
+                <div th:unless="${session.loginMember}">
+                    <a href="/login" class="login">로그인</a> / <a href="/sign_up" class="join">회원가입</a>
+                </div>
+
+                <!-- 로그인 상태 -->
+                <div th:if="${session.loginMember}" class="loginSuccess">
+                    <p id="welcomeMessage" th:text="${session.loginMember.memName} + '님 환영합니다.'"></p>
+                    <a href="/inquiry"><i class="bi bi-person"></i></a>
+                    <a href="/cart"><i class="bi bi-cart4"></i></a>
+                    <a href="/logout" class="logout">로그아웃</a> <!-- 로그아웃 버튼 추가 -->
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- header -->
+    <div id="header">
+
+        <!-- 네비게이션 -->
+        <ul id="nav">
+            <li class="nav1">
+                <a href="/aboutus">누오보</a>
+                <ul class="inner_menu">
+                </ul>
+            </li>
+
+            <li class="nav1">
+                <a href="/menu">메뉴</a>
+            </li>
+
+            <li class="nav1">
+                <a href="javascript:void(0);" onclick="checkLoginAndRedirect('/reservation')">예약</a>
+            </li>
+
+            <li class="nav1">
+                <a href="/community">고객지원</a>
+            </li>
+
+
+            <li class="nav1">
+<!--                <a th:if="${loginMember != null}" th:href="@{/inquiry}">마이페이지</a>-->
+<!--                <a th:unless="${loginMember != null}" href="javascript:alertAndRedirect();">마이페이지</a>-->
+                <a href="javascript:void(0);" onclick="checkLoginAndRedirect('/inquiry')">마이페이지</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- header 끝 -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function checkLoginAndRedirect(url) {
+            fetch('/api/checkLoginStatus', {
+                method: 'GET',
+                credentials: "include" // ⭐ 세션 쿠키 포함 ⭐
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("로그인 상태:", data);
+                    if (data.loggedIn) {
+                        window.location.href = url; // 🔥 마이페이지뿐만 아니라 다양한 URL에 사용 가능!
+                    } else {
+                        Swal.fire({
+                            title: "로그인이 필요합니다",
+                            text: "서비스를 이용하려면 먼저 로그인 해주세요.",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonText: "로그인",
+                            cancelButtonText: "닫기",
+                            customClass: {
+                                confirmButton: "custom-btn",  // 🔥 확인 버튼 스타일 지정
+                                cancelButton: "custom-cancel" // 기본 취소 버튼 스타일
+                            },
+                            buttonsStyling: false // SweetAlert 기본 버튼 스타일 제거
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "/login"; // 로그인 페이지로 이동
+                            }
+                        });
+                    }
+                })
+                .catch(error => console.error("로그인 상태 확인 중 오류 발생:", error)); // 오류 로깅
+        }
+
+
+    </script>
+
+    <style>
+        .custom-btn {
+            background-color: #8A1812 !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            margin-right: 20px;
+        }
+
+        .custom-btn:hover {
+            background-color: #a6332d !important;
+        }
+
+        .custom-cancel {
+            background-color: #ddd !important;
+            color: #555 !important;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+        }
+
+    </style>
+
+
+</header>

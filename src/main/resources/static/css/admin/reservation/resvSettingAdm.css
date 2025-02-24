@@ -1,0 +1,57 @@
+/*날짜 + 휴무일 설정 버튼 div*/
+.ARS_resvDate_row{
+    width: 80%;
+    margin: 30px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 110px;
+}
+
+
+/*table 설정*/
+table {
+    width: 80%;
+    margin: 10px 10%;
+    border-collapse: collapse;
+}
+th, td, thead{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+/*점심/저녁 가운데 정렬*/
+.ARS_table_head{
+    text-align: center;
+}
+
+/*버튼*/
+.btn{
+    --bs-border-radius: 1.5rem; /*버튼 radius*/
+    margin: 5px;
+}
+/*예약불가 버튼*/
+.unavailable{
+    font-size: 0.8rem;
+    padding: 10px 20px;
+}
+
+/*버튼있는 칸 너비 조정*/
+.ARS_button_table{
+    width: 15%;
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
+/* basic.css에서 vertical-align을 baseline으로 해놔서 가운데 정렬 설정이 안먹는것 같아요 ㅠㅠ*/
+}
+
+/*table 시간 칸 너비*/
+.ARS_time_table{
+    width: 20%;
+}
+
+/*이전으로 버튼 가운데 정렬*/
+.ARS_button_div{
+    text-align: center;
+    margin: 5%;
+}

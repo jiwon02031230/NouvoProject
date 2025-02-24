@@ -1,0 +1,172 @@
+/* 메뉴추가 시작 */
+.AAMaCaboard {
+    position: relative;
+    width: 70%;
+    margin: 5rem auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 상위 텍스트 */
+.AAMaCatext {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* 테이블 스타일 */
+.AAMaCatable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-left: none;
+    border-right: none;
+}
+
+.AAMaCatable th, .AAMaCatable td {
+    padding: 0.8rem 0;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.AAMaCatable th {
+    background-color: #f4f4f4;
+    border-top: 2px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+}
+
+.AAMaCatable tr:last-child td {
+    border-bottom: 2px solid #a7a7a7;
+}
+
+.AAMaCatable th:first-child,
+.AAMaCatable td:first-child {
+    border-left: none;
+}
+
+.AAMaCatable th:last-child,
+.AAMaCatable td:last-child {
+    border-right: none;
+}
+
+/* 테이블 내 input 스타일 */
+.AAMaCatable input[type="text"] {
+    padding: 0.3rem;
+    padding-left: 0.6rem;
+    border: 1px solid #ddd;
+    width: 80%;
+    text-align: start;
+}
+
+/* 체크박스 스타일 */
+.AAMaCatable input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin: 0 0.2rem;
+}
+
+/* 삭제 버튼 스타일 */
+.AAMaCadelbtn {
+    background-color: #2e2e2e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.4rem 1rem;
+}
+
+.AAMaCadelbtn:hover {
+    background-color: #595959;
+}
+
+/*테이블 아래 버튼*/
+.AAMaCadelbtn {
+    background-color: #2e2e2e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.4rem 1rem;
+}
+
+.AAMaCadelbtn:hover {
+    background-color: #595959;
+}
+
+.AAMaCaprv{
+    margin-top: 0.4rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+}
+
+.AAMaCaprvbtn1 {
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.5rem 0.7rem;
+}
+
+.AAMaCaprvbtn1:hover {
+    background-color: #2e2e2e;
+}
+
+.AAMaCaprvbtn2 {
+    background-color: #2e2e2e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 0.5rem 0.7rem;
+}
+
+.AAMaCaprvbtn2:hover {
+    background-color: #595959;
+}
+
+/* 버튼 영역 */
+.AAMaCabtnbox {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* 초기화 버튼 스타일 */
+.AAMaCabtnreset, .AAMaCabtnsubmit {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.AAMaCabtnreset {
+    background-color: #a7a7a7;
+    color: white;
+}
+
+.AAMaCabtnreset:hover {
+    background-color: #2e2e2e;
+}
+
+/* 저장 버튼 스타일 */
+.AAMaCabtnsubmit {
+    background-color: #8a1812;
+    color: white;
+}
+
+.AAMaCabtnsubmit:hover {
+    background-color: #d3ae36;
+}

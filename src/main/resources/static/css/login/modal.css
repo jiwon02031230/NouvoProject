@@ -1,0 +1,21 @@
+.custom-btn {
+    background-color: #8A1812 !important; /* 🔴 빨간색 */
+    color: white !important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none; !important
+}
+
+.custom-btn:hover {
+    background-color: #a6332d !important; /* 🟥 더 진한 빨간색 */
+}
+
+.custom-cancel {
+    background-color: #ddd !important;
+    color: #555 !important;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+}

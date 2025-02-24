@@ -1,0 +1,196 @@
+<!--메뉴 추가 페이지!! 수정 페이지는 upd!!-->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 부트스트랩 아이콘 CDN 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- 제이쿼리 라이브러리-->
+    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/admBanner.css}">
+    <link rel="stylesheet" th:href="@{/css/admin/menu/menuAdmupd.css}">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/admHeader :: admHeader"></th:block>
+
+<!-- 메뉴 배너 -->
+<div class="Admbanner">
+    <div class="AdmBantext">관리자 페이지</div>
+    <div class="AdmBansubtext">NUOVO 레스토랑</div>
+    <ul class="AdmBanbtn">
+        <a href="/adm/reservation"><li id="admReservation_tab">예약 관리</li></a>
+        <a href="/adm/member"><li id="admMember_tab">회원 관리</li></a>
+        <a href="/adm/community" ><li id="admCommunity_tab">고객지원 관리</li></a>
+        <a href="/adm/menu"><li id="admMenu_tab" class="active">메뉴 관리</li></a>
+    </ul>
+</div><!-- 메뉴 배너 끝-->
+
+<main class="AAMaddmain">
+
+    <!-- 메뉴 추가 시작!!! -->
+    <div class="AAMaddboard">
+
+        <!-- 상위 text -->
+        <div class="AAMaddtoptext">
+            <div class="AAMaddtext">메뉴 추가</div>
+            <!-- 필수입력 text -->
+            <div class="AAMaddtopmust">
+                <span>*&nbsp;</span> 표시는 필수입력입니다.
+            </div>
+        </div><!-- 공지사항 text 끝 -->
+
+        <form action="/menuAddCom" method="post" enctype="multipart/form-data">
+            <table class="AAMaddformsection">
+                <tbody>
+                <!-- 카테고리 -->
+                <tr>
+                    <td class="AAMaddrequired">카테고리</td>
+                    <td>
+                        <select class="AAMaddselect" name="menuCategory" required>
+                            <option value="">카테고리 선택</option>
+                            <option value="1">신메뉴</option>
+                            <option value="2">샐러드</option>
+                            <option value="3">스테이크</option>
+                            <option value="4">피자/파스타</option>
+                            <option value="5">필라프/리조또</option>
+                            <option value="6">음료</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <!-- 제품명 -->
+                <tr>
+                    <td class="AAMaddrequired">제품명</td>
+                    <td>
+                        <input type="text" name="menuName" required>
+                    </td>
+                </tr>
+
+                <!-- 가격-->
+                <tr>
+                    <td class="AAMaddrequired">가격</td>
+                    <td>
+                        <div class="AAMaddprice">
+                            <input type="text" name="menuPrice" required>
+                            <span>원</span>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 영양정보 -->
+                <tr>
+                    <td class="AAMaddrequiredno">영양 정보</td>
+                    <td>
+                        <div class="AAMaddnutrinfo">
+                            <div class="AAMaddnutrinfoL">
+                                <ul>
+                                    <li>열량 kcal</li>
+                                    <li>단백질 g</li>
+                                    <li>나트륨 mg</li>
+                                    <li>당류 g</li>
+                                    <li>알러지 정보</li>
+                                </ul>
+                            </div>
+                            <div class="AAMaddnutrinfoR">
+                                <ul>
+                                    <li><input type="number" name="menuKcal"></li>
+                                    <li><input type="number" name="menuProtein"></li>
+                                    <li><input type="number" name="menuNa"></li>
+                                    <li><input type="number" name="menuSugar"></li>
+                                    <li><input class="AAMaddnutrialler" type="text" name="menuAllergens"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- 이미지 선택 -->
+                <tr>
+                    <td class="AAMaddrequired">대표 이미지 선택</td>
+                    <td>
+                        <div class="AAMaddimgbox">
+                            <input type="file" id="fileInput" name="file" required>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="AAMaddprv">
+                <p>미리보기로 등록 화면을 확인할 수 있습니다</p>
+                <button type="button" class="AAMaddprvbtn" onclick="showPreview()">미리보기</button>
+            </div>
+
+            <!-- 모달 시작 -->
+            <div class="GMMmodal" id="previewModal" style="display: none;">
+                <div class="GMMcontain">
+                    <button type="button" class="GMMclose" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+                    <img class="GMMimg" id="previewImage" alt="대표 이미지">
+                    <div class="GMMtitle" id="previewName"></div>
+                    <p class="GMMprice" id="previewPrice"></p>
+
+                    <div class="GMMnutrition">
+                        <ul>
+                            <li class="GMMultitle"><strong>영양정보</strong></li>
+                            <li>
+                                <div class="GMMnutriopt">
+                                    <div class="GMMnutriopt1">
+                                        <span>열량 kcal</span>
+                                        <span>단백질 g(%)</span>
+                                        <span>나트륨 mg(%)</span>
+                                        <span>당류 g</span>
+                                    </div>
+                                    <div class="GMMnutriopt2">
+                                        <span id="previewKcal"></span>
+                                        <span id="previewProtein"></span>
+                                        <span id="previewNa"></span>
+                                        <span id="previewSugar"></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="GMMallergy" id="previewAllergens"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="AAMaddbtnbox">
+                <button class="AAMaddbtnreset" type="button" onclick="history.back();">이전으로</button>
+                <button class="AAMaddbtnreset" type="reset">다시 작성</button>
+                <button class="AAMaddbtnsubmit" type="submit">추가하기</button>
+            </div>
+        </form>
+
+    </div>
+</main>
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+</body>
+<!-- 자바스크립트 -->
+<script th:src="@{/js/admin/menuAdm.js}"></script>
+
+
+
+</html>

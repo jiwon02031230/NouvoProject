@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUOVO 예약하기</title>
+
+    <!-- 파비콘 -->
+    <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+    <!-- 부트스트랩 라이브러리 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- 부트스트랩 아이콘 CDN 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- PortOne SDK를 가장 먼저 로드 -->
+    <script th:src="@{https://cdn.iamport.kr/v1/iamport.js}"></script>
+
+    <!-- jQuery를 먼저 로드 -->
+    <script defer th:src="@{/js/jquery-3.7.1.min.js}"></script>
+
+    <!-- 결제 관련 JS를 마지막에 로드 -->
+    <script defer th:src="@{/js/reservation/payment.js}"></script>
+
+
+    <script th:src="@{/js/header.js}"></script>
+
+    <!-- 스타일시트 -->
+    <link rel="stylesheet" th:href="@{/css/basic.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/reservation/payment.css}">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+<!-- 헤더 -->
+<th:block th:replace="common/header :: header"></th:block>
+
+<!--GR(generalReservation)-->
+<main>
+
+    <!-- 메뉴 배너 -->
+    <div class="GRbanner">
+        <div class="GRBantext">RESERVATION</div>
+        <div class="GRBansubtext">예약</div>
+    </div><!-- 메뉴 배너 끝-->
+
+    <div class="GRboard">
+    <!-- 예약자 확인 -->
+        <p class="GRguest_text">예약자 확인</p>
+
+        <!-- 예약자 상세 내역 -->
+        <div class="GR_reservtion_check">
+
+            <div class="GRtoptext">
+                <p class="GRtext1" th:text="${savedResv.resvName}+' 님'"></p>
+                <p class="GRtext2" id="phoneNum" th:text="${savedResv.resvPhoneNum}"></p>
+                <p class="GRtext2" th:text="${savedResv.resvEmail ?: '-'}"></p>
+            </div>
+
+            <div class="GRmidtext">
+                <p class="GRtext2 GRgray">예약 일시:</p>
+                <p class="GRtext1 GRpad">
+
+                    <span th:text="${reservationDate.getResvDate().getYear()}"></span>년
+                    <span th:text="${reservationDate.getResvDate().getMonthValue()}"></span>월
+                    <span th:text="${reservationDate.getResvDate().getDayOfMonth()}"></span>일
+
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'SUNDAY'}" th:text="'일요일'"></span>
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'MONDAY'}" th:text="'월요일'"></span>
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'TUESDAY'}" th:text="'화요일'"></span>
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'WEDNESDAY'}" th:text="'수요일'"></span>
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'THURSDAY'}" th:text="'목요일'"></span>
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'FRIDAY'}" th:text="'금요일'"></span>
+                    <span th:if="${reservationDate.getResvDate().getDayOfWeek().toString() == 'SATURDAY'}" th:text="'토요일'"></span>
+
+                    <span th:text="${reservationDate.getResvType() == 0 ? '오전' : '오후'}"></span>
+                    <span th:text="${reservationDate.getResvTime()+':00'}"></span>
+                </p>
+            </div>
+
+            <div class="GRbottext">
+            <p class="GRtext2 GRgray">기타 요청:</p>
+            <p class="GRtext2 GRpad" th:text="${savedResv.resvNote ?: '-' }"></p>
+            </div>
+        </div>
+
+
+        <!-- 주문 메뉴 확인 -->
+        <p class="GRmenu_text">주문 메뉴</p>
+
+        <!-- 주문 메뉴 리스트 -->
+        <div class="GRmenuchecklist">
+            <table>
+                <thead>
+                    <tr>
+                        <th>이미지</th>
+                        <th>메뉴명</th>
+                        <th>수량</th>
+                        <th>가격</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+<!-- 리스트 시작!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                    <tr>
+                        <td><img src="/images/reservation/reservationpay1.png" alt="예약금"></td>
+                        <td>예약금</td>
+                        <td th:text="${savedResv.totalGuests}"></td>
+                        <td th:text="(${savedResv.totalGuests}*10000)+'원'"></td>
+                    </tr>
+
+                    <tr th:if="${resvFoodList != null and selectedMenu != null}"
+                        th:each="food, no : ${resvFoodList}">
+
+                        <td>
+                            <img th:if="${selectedMenu[no.index] != null}"
+                                 th:src="@{'/images/menu/' + ${selectedMenu[no.index].menuImageUrl}}"
+                                 th:alt="${selectedMenu[no.index].menuName}">
+                        </td>
+
+                        <td th:text="${selectedMenu[no.index] != null ? selectedMenu[no.index].menuName : '메뉴 없음'}"></td>
+                        <td th:text="${food.quantity}"></td>
+                        <td th:text="|${food.amountPrice}원|"></td>
+
+                    </tr>
+<!-- 리스트 끝!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                </tbody>
+            </table>
+
+        </div>
+
+        <!-- 구매진행 동의 체크박스 -->
+        <div class="GR_payment_agree">
+            <input type="checkbox" name="GR_payment_agree_checkbox" id="GR_payment_agree_checkbox">
+            <label for="GR_payment_agree_checkbox">(필수) 구매하실 상품의 결제정보를 확인하였으며, 구매 진행에 동의합니다.</label>
+        </div>
+
+        <input type="hidden" id="totalPayment" th:value="${savedResv.getTotalPayment()}">
+
+
+        <!-- 수정 후 -->
+        <input type="hidden" id="reservationDateId" th:value="${reservationDate.getId()}">
+        <div class="GR_next_btn">
+            <button class="GRpaybtn" type="button" id="GRpaybtn">결제하기</button>
+        </div>
+
+
+
+    </div>
+
+</main>
+
+<!-- 푸터 -->
+<th:block th:replace="common/footer :: footer"></th:block>
+<!--사이드바-->
+<th:block th:replace="common/sidebar :: sidebar"></th:block>
+<script th:src="@{https://cdn.iamport.kr/v1/iamport.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUOVO 일반 회원가입</title>
+
+  <!-- 파비콘 -->
+  <link rel="icon" th:href="@{/images/common/fa01.png}" type="image/png">
+
+  <!-- 포트원(본인확인용) -->
+  <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+
+  <!-- 부트스트랩 라이브러리 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"></script>
+
+  <!-- 제이쿼리 라이브러리-->
+  <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" th:href="@{/css/basic.css}">
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/login/signup.css}">
+
+  <!--로그인 모달-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="/css/login/modal.css">
+
+
+</head>
+<body>
+<!--header 부분-->
+<th:block th:replace="common/header.html"></th:block>
+
+
+<!--일반 회원가입-->
+<main>
+  <div class="Gsignupcontainer">
+    <div class="Gsignup_box">
+
+      <!--로고-->
+      <a href="/main"><img class="Gsignup_nuovo_logo" th:src="@{/images/common/logo01.png}"></a>
+
+      <!-- text -->
+      <p class="Gsignup_join_text">회원가입</p>
+      <p class="Gsignup_info_text"><span class="star_text">* </span>표시는 필수입력입니다.</p>
+
+      <!-- form -->
+      <form action="/memberjoin" id="signup-form" method="post" class="signup_form">
+
+        <!-- 아이디 name value -->
+        <div class="Gsignupidinput">
+          <span class="GSstar">* </span>
+          <input id="input_id" name="memid" type="text" required placeholder="아이디 입력">
+          <button type="button" class="Gsignupidbtn duplicateCheck">중복확인</button>
+        </div>
+
+        <!--비밀번호-->
+        <div class="Gsignupwinput">
+          <div class="Gsignupwinput1">
+            <span class="GSstar">* </span>
+            <input id="input_pwd" name="memPwd" type="password" required placeholder="비밀번호 입력">
+          </div>
+
+          <!--비밀번호 확인-->
+          <div class="Gsignupwinput2">
+            <div class="Gsignupwinput2con">
+              <span class="GSstar">* </span>
+              <input id="input_pwdCheck" name="passwordCheck" required type="password" placeholder="비밀번호 확인">
+            </div>
+            <div class="Gsignupwinput2err" id="pwdError">
+              <small class="error-msg"> * 비밀번호가 일치하지 않습니다</small>
+            </div>
+          </div>
+        </div><!-- 비밀번호 입력 끝 -->
+
+        <!--이름-->
+        <div class="Gsignupnameinput">
+          <span class="GSstar">* </span>
+          <input id="input_name" name="memName" required type="text" placeholder="이름">
+        </div><!--이름 입력 끝-->
+
+        <!--이메일-->
+        <div class="Gsignupmailinput">
+          <div class="Gsignupmailinput1">
+            <span class="GSnostar">*</span>
+            <input id="input_email" name="memEmail" type="email" placeholder="이메일 입력 (선택)">
+          </div>
+          <!-- 경고 메시지 추가될 부분 -->
+          <p class="GR_alert_msg" id="GR_alert_msg"></p>
+        </div>
+
+        <!--핸드폰 번호-->
+        <div class="Gsignuptelinput">
+          <div class="Gsignuptelinput1">
+            <span class="GSstar">* </span>
+            <input id="input_phone" name="memPhone" required type="tel" placeholder="핸드폰번호 입력">
+          </div>
+
+        </div><!--핸드폰번호 입력 끝-->
+
+        <!--생년월일-->
+        <div class="Gsignupbirthinput">
+          <p class="Gsignuptitletext">생년월일 입력 (선택)</p>
+          <div class="Gsignup_input input_birthDay GMYMbirth">
+            <select class="form-select" name="birthyear" id="birthyear">
+              <option disabled selected>출생년도</option>
+              <!-- JavaScript로 추가될 연도 옵션들 -->
+            </select>
+            <select class="form-select" name="birthmonth" id="birthmonth">
+              <option disabled selected>월</option>
+              <!-- JavaScript로 추가될 월 옵션들 -->
+            </select>
+            <select class="form-select" name="birthday" id="birthday">
+              <option disabled selected>일</option>
+              <!-- JavaScript로 추가될 일 옵션들 -->
+            </select>
+          </div>
+        </div><!--생년월일 끝-->
+
+        <!--성별-->
+        <div class="Gsignupgenderinput">
+          <p class="Gsignuptitletext">성별 (선택)</p>
+          <div class="btn-group input_gender" role="group" aria-label="Basic example">
+            <!--클릭했을 때 색 변경하면서 value도 변경해주는건 js로 나중에 해야합니다~ -->
+            <button type="button" class="btn btn-outline-danger" name="gender" value="0">남자</button>
+            <button type="button" class="btn btn-outline-danger" name="gender" value="1">여자</button>
+            <button type="button" class="btn btn-outline-danger" name="gender" value="2">선택안함</button>
+          </div>
+
+        </div>
+        <button type="submit" class="Gsignupcommitbtn">회원가입</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<th:block th:replace="common/footer.html"></th:block>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const signupForm = document.getElementById("signup-form");
+
+    signupForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // 기본 폼 제출 방지
+
+      Swal.fire({
+        title: "회원가입이 완료되었습니다!",
+        text: "로그인해주세요.",
+        icon: "success",
+        confirmButtonText: "확인",
+        customClass: {
+          confirmButton: "custom-btn"
+        },
+        buttonsStyling: false
+      }).then(() => {
+        signupForm.submit(); // ✅ 폼을 서버로 제출 (데이터 유지)
+        // window.location.href = "/memberjoin"; // ✅ 메인 페이지로 이동
+      });
+    });
+  });
+  </script>
+<script th:src="@{/js/login/member.js}"></script>
+<script th:src="@{/js/header.js}"></script>
+</body>
+</html>
+

@@ -1,0 +1,199 @@
+/*에스코어 폰트*/
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 관리자페이지- 회원정보 수정 스타일 시작*/
+.APaupdbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+/* 타이틀 */
+.APatext {
+    font-size: 1.2rem;
+    text-align: left;
+    width: 60%;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+/* 테이블 스타일 */
+.APainfotable {
+    width: 60%;
+    border-collapse: collapse;
+}
+
+.APainfotable td {
+    padding: 1rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.APainfotable tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.APainfotable tr:first-child{
+    border-top: 2px solid #a7a7a7;
+}
+
+.APainfotable tr:last-child {
+    border-bottom: 2px solid #a7a7a7;
+}
+
+.APainputupw {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.APainputuname input,
+.APainputuid input,
+.APainputupw input,
+.APainputwraptell input {
+    width: 80%;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+}
+
+.APainputmemo textarea {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 150px;
+    resize: vertical;
+    padding: 1rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1;
+}
+
+.APapk input {
+    background-color: #ccc;
+    color: #595959;
+}
+
+.APainputwraptell input::placeholder {
+    color: #ccc;
+    opacity: 1;
+}
+
+/* 번호 인증 버튼 */
+.APainputupwbtn {
+    white-space: nowrap;
+    padding: 0.7rem 1rem;
+    border: none;
+    background-color: #8a1812;
+    color: white;
+    border-radius: 5px;
+    margin-left: 0.3rem;
+    transition: background-color 0.3s;
+}
+
+.APainputupwbtn:hover {
+    background-color: #d3ae36;
+}
+
+/* 생년월일 */
+.APabirth {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    min-width: 400px;
+}
+
+.APabirth select {
+    padding: 0.2rem 1rem;
+    border: 1px solid #ccc;
+}
+
+/* 성별 */
+.APagender {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 300px;
+}
+
+.APagender input {
+    margin-right: 6px;
+}
+
+/* 버튼 스타일 */
+.APadelbox {
+    width: 60%;
+    text-align: right;
+}
+
+.APabtns {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 0.6rem;
+}
+
+.APadelbtn {
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.5rem;
+    border-radius: 5px;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.APadelbtn:hover {
+    background-color: #595959;
+}
+
+.AParebtn{
+    background-color: #a7a7a7;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.AParebtn:hover{
+    background-color: #595959;
+}
+
+.APaprevbtn{
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    background-color: #a7a7a7;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.APaprevbtn:hover{
+    background-color: #595959;
+}
+
+
+.APasubtn {
+    background-color: #8a1812;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.APasubtn:hover {
+    background-color: #d3ae36;
+}
